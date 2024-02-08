@@ -98,10 +98,10 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <a href=""
+                        <a href="{% url 'view_bag' %}"
                            class="{% if grand_total %} text-info font-weight-bold {% else %} text-black {% endif %} nav-link">
                             <ul>
-                                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>{{ product_count }}</span></a></li>
                             </ul>
                             <div class="header__cart__price">
                                 <span>
