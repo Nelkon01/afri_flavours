@@ -43,6 +43,7 @@
     <title>Afri-Flavours Hub {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
+{% include 'includes/mobile-top-header.html' %}
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -65,80 +66,70 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i> Login</a>
+                            <a href="#" class="text-black nav-link" id="user-options" data-toggle="dropdown"
+                               aria-haspopup="true"
+                               aria-expanded="false"> <i class="fas fa-user"></i> My Account</a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}">Ari-Flavours Hub<img src="" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    {%  include 'includes/main-nav.html' %}
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <a href=""
+                           class="{% if grand_total %} text-info font-weight-bold {% else %} text-black {% endif %} nav-link">
+                            <ul>
+                                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            </ul>
+                            <div class="header__cart__price">
+                                <span>
+                                    {% if grand_total %}
+                                        Item: ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        Items: $0.00
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="header__search mx-auto">
+                        <div class="header__search__form">
+                            <form action="#">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="header__logo">
-                    <a href="{% url 'home' %}">Ari-Flavours Hub<img src="" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="">Shop</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="">Traditional Dishes</a></li>
-                                <li><a href="">Grains and Cereal</a></li>
-                                <li><a href="">Spices and Seasoning</a></li>
-                                <li><a href="">Meat and Fish</a></li>
-                                <li><a href="">Vegetable and Fruits</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Recipes and Blog</a></li>
-                        <li><a href="">About Us</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3">
-                <div class="header__cart">
-                    <ul>
-                        <li><a href=""><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="humberger__open">
-            <i class="fa fa-bars"></i>
-        </div>
-    </div>
 </header>
 <!-- Header Section End -->
-
-<!-- Hero Section -->
-{#<section class="hero">#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-12">#}
-{#                <div class="hero__search">#}
-{#                    <div class="hero__search__form">#}
-{#                        <form action="#">#}
-{#                            <input type="text" placeholder="What do you need?">#}
-{#                            <button type="submit" class="site-btn">SEARCH</button>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="hero__item">#}
-{#                    <div class="hero__text">#}
-{#                        <span>100% FRESH</span>#}
-{#                        <h2>Taste <br/>The Authentic Flavors of Africa</h2>#}
-{#                        <p>Discover traditional African dishes or Ingredients, spices and more.</p>#}
-{#                        <a href="#" class="primary-btn">SHOP NOW</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
 
 
 
