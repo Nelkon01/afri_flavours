@@ -94,16 +94,15 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    {%  include 'includes/main-nav.html' %}
+                    {% include 'includes/main-nav.html' %}
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <a href="{% url 'view_bag' %}"
-                           class="{% if grand_total %} text-info font-weight-bold {% else %} text-black {% endif %} nav-link">
-                            <ul>
-                                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>{{ product_count }}</span></a></li>
-                            </ul>
-                            <div class="header__cart__price">
+                        <ul>
+                            <li><a href="{% url 'view_bag' %}"><i class="fa fa-shopping-bag"></i>
+                                <span>{{ product_count }}</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">
                                 <span>
                                     {% if grand_total %}
                                         Item: ${{ grand_total|floatformat:2 }}
@@ -111,8 +110,7 @@
                                         Items: $0.00
                                     {% endif %}
                                 </span>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
