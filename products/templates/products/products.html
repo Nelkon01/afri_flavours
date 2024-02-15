@@ -95,6 +95,18 @@
                                 {% endif %}
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
+                                    <!-- Display Allergen Information -->
+                                    <div class="mt-2">
+                                        {% for allergen in product.allergens.all %}
+                                            <span class="allergen-icon" title="{{ allergen.name }}">
+                                                {% if allergen.icon %}
+                                                    <img src="{{ allergen.icon.url }}" alt="{{ allergen.name }}" style="height: 20px;">
+                                                {% else %}
+                                                    {{ allergen.name }}
+                                                {% endif %}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
@@ -116,8 +128,8 @@
                                             {% endif %}
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
-{#                                                    <a href="{% url 'edit_product' product.id %}">Edit</a>#}
-{#                                                    <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>#}
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                                    <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
                                                 </small>
                                             {% endif %}
                                         </div>

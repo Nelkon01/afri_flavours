@@ -1,0 +1,11 @@
+<div class="allergens">
+    <p><strong>Allergens:</strong></p>
+    {% for allergen in item.product.allergens.all %}
+        <div class="allergen">
+            {% if allergen.icon %}
+                <img src="{{ allergen.icon.url }}" alt="{{ allergen.name }}" style="height: 20px; width: auto;">
+            {% endif %}
+            <span>{{ allergen.name }}</span>
+        </div>
+    {% endfor %}
+</div>
