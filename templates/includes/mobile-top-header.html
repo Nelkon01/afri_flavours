@@ -6,10 +6,18 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="{% url 'view_bag' %}"><i class="fa fa-shopping-bag"></i>
+                <span>{{ product_count }}</span></a></li>
         </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
+        <div class="header__cart__price">
+            <span>
+                {% if grand_total %}
+                    Item: ${{ grand_total|floatformat:2 }}
+                {% else %}
+                    Items: $0.00
+                {% endif %}
+            </span>
+        </div>
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__auth">
@@ -30,6 +38,22 @@
             </div>
         </div>
     </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="">Shop</a>
+                <ul class="header__menu__dropdown">
+                    <li><a href="">Traditional Dishes</a></li>
+                    <li><a href="">Grains and Cereal</a></li>
+                    <li><a href="">Spices and Seasoning</a></li>
+                    <li><a href="">Meat and Fish</a></li>
+                    <li><a href="">Vegetable and Fruits</a></li>
+                </ul>
+            </li>
+            <li><a href="">Recipes and Blog</a></li>
+            <li><a href="">About Us</a></li>
+        </ul>
+    </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="header__top__right__social">
         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -44,4 +68,5 @@
         </ul>
     </div>
 </div>
+
 <!-- Humberger End -->
