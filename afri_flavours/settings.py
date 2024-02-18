@@ -44,8 +44,11 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
+    'profiles',
 
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -172,3 +175,8 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Stripe
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
