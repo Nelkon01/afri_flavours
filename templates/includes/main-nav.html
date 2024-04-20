@@ -3,11 +3,11 @@
         <li class="active"><a href="{% url 'home' %}">Home</a></li>
         <li><a href="">Shop</a>
             <ul class="header__menu__dropdown">
-                <li><a href="">Traditional Dishes</a></li>
-                <li><a href="">Grains and Cereal</a></li>
-                <li><a href="">Spices and Seasoning</a></li>
-                <li><a href="">Meat and Fish</a></li>
-                <li><a href="">Vegetable and Fruits</a></li>
+                <li><a href="{% url 'products' %}?category=traditional_dishes">Traditional Dishes</a></li>
+                <li><a href="{% url 'products' %}?category=grains_cereal">Grains and Cereal</a></li>
+                <li><a href="{% url 'products' %}?category=spices_seasoning">Spices and Seasoning</a></li>
+                <li><a href="{% url 'products' %}?category=meat_fish">Meat and Fish</a></li>
+                <li><a href="{% url 'products' %}?category=vegetables_fruits">Vegetable and Fruits</a></li>
             </ul>
         </li>
         <li><a href="">Recipes and Blog</a></li>
