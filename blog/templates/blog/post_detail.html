@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<p>Posted on {{ object.created_on }} by {{ object.author }}</p>
+<div>{{ object.content | linebreaks }}</div>
+
+<h2>Comments</h2>
+<!-- Display comments here -->
+{% endblock %}

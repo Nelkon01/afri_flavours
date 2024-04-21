@@ -16,12 +16,17 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    class Status(models.TextChoices):
+        DRAFT = 'draft', 'Draft'
+        PUBLISHED = 'published', 'Published'
+
     title = models.CharField(max_length=200)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='posts')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+    status = models.CharField(max_length=10, choices=Status.choices, default=Status.DRAFT)
 
     def __str__(self):
         return self.title

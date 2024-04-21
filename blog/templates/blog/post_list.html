@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">Recipe & Blog Posts</h2>
+<ul>
+    {% for post in object_list %}
+    <li>
+        <h2><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h2>
+        <p>Posted by {{ post.author }} on {{ post.created_on }}</p>
+        <div>{{ post.content|slice:":200" }}...</div>
+    </li>
+    {% empty %}
+    <li>No posts available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
