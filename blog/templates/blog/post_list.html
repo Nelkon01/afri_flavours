@@ -2,11 +2,16 @@
 
 {% block content %}
 <h2 class="text-center">Recipe & Blog Posts</h2>
+{% if is_superuser %}
+    <div class="create-post-button">
+        <a href="{% url 'blog:post_create' %}" class="btn btn-primary">Create New Post</a>
+    </div>
+{% endif %}
 <ul>
-    {% for post in object_list %}
+    {% for post in posts %}
     <li>
         <h2><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h2>
-        <p>Posted by {{ post.author }} on {{ post.created_on }}</p>
+        <p>Posted by {{ post.author }} on {{ post.publish }}</p>
         <div>{{ post.content|slice:":200" }}...</div>
     </li>
     {% empty %}

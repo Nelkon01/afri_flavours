@@ -3,30 +3,20 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
-# Create your models here.
-class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True)
-
-    class Meta:
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.name
-
-
 class Post(models.Model):
-    class Status(models.TextChoices):
-        DRAFT = 'draft', 'Draft'
-        PUBLISHED = 'published', 'Published'
+    class Status:
+        DRAFT = 'draft'
+        PUBLISHED = 'published'
+        CHOICES = (
+            (DRAFT, 'Draft'),
+            (PUBLISHED, 'Published'),
+        )
 
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
-    content = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
-    categories = models.ManyToManyField(Category, related_name='posts')
-    status = models.CharField(max_length=10, choices=Status.choices, default=Status.DRAFT)
+    body = models.TextField()
+    publish = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=Status.CHOICES, default=Status.DRAFT)
 
     def __str__(self):
         return self.title
