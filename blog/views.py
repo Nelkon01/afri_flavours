@@ -29,17 +29,19 @@ class PostDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
+        context['comments'] = Comment.objects.filter(post=self.get_object()).order_by('-created_on')
         return context
 
     @method_decorator(login_required(login_url='/login/'))
     def post(self, request, *args, **kwargs):
+        post = self.get_object()
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.post = self.get_object()
+            comment.post = post
             comment.author = request.user
             comment.save()
-            return redirect('blog:post_detail', pk=comment.post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
         else:
             context = self.get_context_data(form=form)
             context['comment_form'] = form

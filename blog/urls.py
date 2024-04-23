@@ -7,3 +7,5 @@ urlpatterns = [
     path('<int:pk>/', views.PostDetail.as_view(), name='post_detail'),
     path('create/', views.PostCreateView.as_view(), name='post_create'),
 ]
+
+

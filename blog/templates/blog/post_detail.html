@@ -1,31 +1,71 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
-<article>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-</article>
-
-<section>
-    <h3>Comments</h3>
-    {% for comment in post.comments.all %}
-        {% if comment.approved %}
-            <div>
-                <p>{{ comment.author.username }} says: </p>
-                <p>{{ comment.content }}</p>
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-8 offset-lg-2">
+            <!-- Post Image -->
+            <div class="image-container my-5">
+                {% if post.image %}
+                <a href="{{ post.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}default_image.jpeg" alt="{{ post.title }}">
+                </a>
+                {% endif %}
             </div>
-        {% endif %}
-    {% empty %}
-        <p>No comments yet.</p>
-    {% endfor %}
-</section>
+            <!-- Post Content -->
+            <div class="post-details-container mb-5 mt-5">
+                <h2>{{ post.title }}</h2>
+                <div class="post-meta">
+                    <span class="text-muted">Posted by {{ post.author }} on {{ post.publish }}</span>
+                </div>
+                <p class="mt-3">{{ post.body|safe }}</p>
 
-<section>
-    <h3>Add a comment</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ comment_form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-</section>
+                <!-- Comments Section -->
+                <section class="comments">
+                    <h4>Comments</h4>
+                    {% for comment in comments %}
+                        <div class="comment" id="comment_{{ comment.id }}">
+                            <p><strong>{{ comment.author }}</strong> on {{ comment.created_on }}</p>
+                            <p>{{ comment.body|linebreaks }}</p>
+                        </div>
+                    {% empty %}
+                        <p>No comments yet.</p>
+                    {% endfor %}
+                </section>
+
+                <!-- Add Comment Form -->
+                {% if user.is_authenticated %}
+                <section class="add-comment">
+                    <h4>Leave a comment</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                    </form>
+                </section>
+                {% else %}
+                <p><a href="{% url 'account_login' %}">Log in</a> to leave a comment.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
 {% endblock %}
