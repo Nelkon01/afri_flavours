@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from django.contrib import messages
 
 
 class PostList(ListView):
@@ -57,3 +58,39 @@ class PostCreateView(CreateView, LoginRequiredMixin):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class PostUpdateView(UserPassesTestMixin, UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'blog/post_edit.html'
+    login_url = '/login/'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Post updated successfully.")
+        return response
+
+    def get_success_url(self):
+        post = self.get_object()
+        return reverse_lazy('blog:post_detail', kwargs={'pk': post.pk})
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user.is_superuser or self.request.user == post.author:
+            return True
+        else:
+            messages.error(self.request, "You do not have permission to edit this post.")
+            return False
+
+
+class PostDeleteView(UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = 'blog/post_confirm_delete.html'
+    success_url = reverse_lazy('blog:post_list')
+    login_url = '/login/'
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user.is_superuser or self.request.user == post.author
+

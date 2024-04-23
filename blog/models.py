@@ -14,7 +14,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='posts/%Y/%m/%d/', blank=True, null=True)
     body = models.TextField()
     publish = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=Status.CHOICES, default=Status.DRAFT)
