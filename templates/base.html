@@ -45,7 +45,7 @@
     <title>Afri-Flavours Hub {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-
+{% include 'includes/mobile-top-header.html' %}
 <header class="header">
     <div class="desktop-top-header">
         <div class="header__top">
@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="header__logo">
-                            <a href="{% url 'home' %}">Ari-Flavours Hub<img src="" alt=""></a>
+                            <a href="{% url 'home' %}">Ari-Flavours Hub</a>
                         </div>
                     </div>
                     <div class="col-lg-6 mobile-menu">
@@ -108,7 +108,7 @@
                             <div class="header__cart__price">
                                 <span>
                                     {% if grand_total %}
-                                        Item: ${{ grand_total|floatformat:2 }}
+                                        Items: ${{ grand_total|floatformat:2 }}
                                     {% else %}
                                         Items: $0.00
                                     {% endif %}
@@ -132,21 +132,21 @@
     </div>
 </header>
 {% if messages %}
-            <div class="message-container">
-                {% for message in messages %}
-                    {% with message.level as level %}
-                        {% if level == 40 %}
-                            {% include 'includes/toasts/toast_error.html' %}
-                        {% elif level == 30 %}
-                            {% include 'includes/toasts/toast_warning.html' %}
-                        {% elif level == 25 %}
-                            {% include 'includes/toasts/toast_success.html' %}
-                        {% else %}
-                            {% include 'includes/toasts/toast_info.html' %}
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
-            </div>
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
 {% endif %}
 
 
@@ -162,7 +162,6 @@
 $(document).ready(function() {
     $('.toast').toast('show');
 });
-
 </script>
 
 {% endblock %}

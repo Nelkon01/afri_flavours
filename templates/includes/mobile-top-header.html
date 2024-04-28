@@ -1,72 +1,65 @@
-<!-- Humberger Begin -->
-<div class="humberger__menu__overlay"></div>
-<div class="humberger__menu__wrapper">
-    <div class="humberger__menu__logo">
-        <a href="#"><img src="" alt="">Afri-Flavours Hub</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="mobile-header__center">
+        <a href="{% url 'home' %}" class="mobile-logo">
+            Afri-Flavours Hub
+        </a>
     </div>
-    <div class="humberger__menu__cart">
-        <ul>
-            <li><a href="{% url 'view_bag' %}"><i class="fa fa-shopping-bag"></i>
-                <span>{{ product_count }}</span></a></li>
-        </ul>
-        <div class="header__cart__price">
-            <span>
-                {% if grand_total %}
-                    Item: ${{ grand_total|floatformat:2 }}
-                {% else %}
-                    Items: $0.00
-                {% endif %}
-            </span>
-        </div>
+    <div class="mobile-header__right">
+        <a href="{% url 'view_bag' %}" class="profile-link">
+            <i class="fa fa-shopping-bag"></i>
+            <span>{{ product_count }}</span>
+        </a>
+        <span>
+            {% if grand_total %}
+                Items: ${{ grand_total|floatformat:2 }}
+            {% else %}
+                Items: $0.00
+            {% endif %}
+        </span>
     </div>
-    <div class="humberger__menu__widget">
-        <div class="header__top__right__auth">
-            <a href="#" class="text-black nav-link" id="user-options" data-toggle="dropdown"
-               aria-haspopup="true"
-               aria-expanded="false"> <i class="fas fa-user"></i> My Account</a>
-            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <a href="" class="dropdown-item">Product Management</a>
-                    {% endif %}
-                    <a href="" class="dropdown-item">My Profile</a>
-                    <a href="" class="dropdown-item">Logout</a>
-                {% else %}
-                    <a href="" class="dropdown-item">Sign Up</a>
-                    <a href="" class="dropdown-item">Login</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <nav class="humberger__menu__nav mobile-menu">
-        <ul>
-            <li class="active"><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="">Shop</a>
-                <ul class="header__menu__dropdown">
-                    <li><a href="">Traditional Dishes</a></li>
-                    <li><a href="">Grains and Cereal</a></li>
-                    <li><a href="">Spices and Seasoning</a></li>
-                    <li><a href="">Meat and Fish</a></li>
-                    <li><a href="">Vegetable and Fruits</a></li>
-                </ul>
-            </li>
-            <li><a href="">Recipes and Blog</a></li>
-            <li><a href="">About Us</a></li>
-        </ul>
-    </nav>
-    <div id="mobile-menu-wrap"></div>
-    <div class="header__top__right__social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-snapchat"></i></a>
-        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-    </div>
-    <div class="humberger__menu__contact">
-        <ul>
-            <li><i class="fa fa-envelope"></i> hello@afri-flavours.com</li>
-            <li>Free Shipping for all Order of $70</li>
-        </ul>
-    </div>
-</div>
 
-<!-- Humberger End -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Shop
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link" href="{% url 'products' %}?category=traditional_dishes">Traditional Dishes</a>
+            <a class="nav-link" href="{% url 'products' %}?category=grains_cereal">Grains and Cereal</a>
+                <a class="nav-link" href="{% url 'products' %}?category=spices_seasoning">Spices and Seasoning</a>
+                <a class="nav-link" href="{% url 'products' %}?category=meat_fish">Meat and Fish</a>
+                <a class="nav-link" href="{% url 'products' %}?category=vegetables_fruits">Vegetable and Fruits</a>
+        </div>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:post_list' %}">Recipes and Blog</a>
+      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="nav-link">Product Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item" class="nav-link">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}" class="nav-link">Sign Up</a>
+                <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+            {% endif %}
+        </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" name="q" type="search" placeholder="What do you need?" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
