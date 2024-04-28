@@ -1,7 +1,7 @@
 <nav class="header__menu">
     <ul>
         <li class="active"><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="">Shop</a>
+        <li><a href="{% url 'products' %}">Shop</a>
             <ul class="header__menu__dropdown">
                 <li><a href="{% url 'products' %}?category=traditional_dishes">Traditional Dishes</a></li>
                 <li><a href="{% url 'products' %}?category=grains_cereal">Grains and Cereal</a></li>
