@@ -3,6 +3,9 @@ body {
 	height: 100%;
 	font-family: "Cairo", sans-serif;
 	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -151,6 +154,17 @@ ol {
     background: white;
     color: #7fad39 !important;
     border: 1px solid #7fad39;
+}
+
+button {
+	display: inline-block;
+	font-size: 14px;
+	padding: 7px 25px 7px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	background: #7fad39;
+	letter-spacing: 2px;
 }
 
 .btn-outline-black:hover,
@@ -567,13 +581,14 @@ ol {
 
 section.hero {
 	position: relative;
-	width: 100%;
+	/*width: 100%;*/
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    background: url('/media/homepage_background.jpg') no-repeat center center fixed;
+	background: url('/media/homepage_background.jpg') no-repeat center center fixed;
 	background-size: cover;
+	overflow: hidden;
 }
 
 .hero {
@@ -584,13 +599,13 @@ section.hero {
     justify-content: center;
 }
 .hero__overlay {
-    background: rgba(255, 255, 255, 0.7); /* White background with 50% opacity */
+    background: rgba(255, 255, 255, 0.7);
     z-index: 1;
 }
 
 .hero__item {
-    width: 90vw;
-    height: 80vh;
+    /*width: 90vw;*/
+    /*height: 80vh;*/
     background-size: cover;
     display: flex;
     align-items: center;
@@ -600,7 +615,8 @@ section.hero {
 .hero__text {
     text-align: center;
     padding: 15px;
-    color: #fff;
+    color: white;
+	border-radius: 8px;
 }
 
 .hero__text span {
@@ -624,18 +640,18 @@ section.hero {
 }
 
 .primary-btn {
-    background: #7fad39; /* Background color for the button */
-    color: white; /* Text color for the button */
-    padding: 10px 20px; /* Padding around the text */
+    background: #7fad39;
+    color: white;
+    padding: 10px 20px;
     text-transform: uppercase;
-    border: none; /* Removes border */
-    font-size: 16px; /* Adjust font size as needed */
-    letter-spacing: 1px; /* Spacing between letters */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
 }
 
 .primary-btn:hover {
-    background-color: #5c8a34; /* Darker shade for hover effect */
+    background-color: #5c8a34;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -713,7 +729,7 @@ section.hero {
 
 @media only screen and (max-width: 991px) {
 	.blog__details__author {
-		overflow: hidden;
+		/*overflow: hidden;*/
 		margin-bottom: 25px;
 	}
 	.humberger__open {

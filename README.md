@@ -1,24 +1,161 @@
-# Afri Flavours Hub E-Commerce Website
+# Afri-Flavours Hub E-Commerce Website
 
 ## Overview
 
-This project is a food e-commerce website built with Django. It features user authentication, product management, a
-shopping cart, order processing, payment integration, and an admin dashboard for managing the website.
+Afri-Flavours Hub is a food e-commerce website developed using Django. It features user authentication, product management, a shopping cart, order processing, payment integration, a blog for sharing recipes and stories, and an admin dashboard for managing the website.
 
-## Features
+## Table of Contents
 
-- **User Authentication**: Registration, login, and profile management.
-- **Product Management**: Add, edit, and remove products.
-- **Shopping Cart**: Users can add products to their cart and proceed to checkout.
-- **Order Processing**: Manage and track customer orders.
-- **Payment Integration**: Secure payment processing.
-- **Responsive Design**: Mobile-friendly interface.
+<details>
+<summary>Click to Expand</summary>
 
+- [UX](#ux)
+    * [Strategy](#strategy)
+    * [Scope](#scope)
+- [Data Structure](#data-structure)
+    * [Database Choice](#database-choice)
+    * [Blog Models](#blog-models)
+- [Design Choices](#design-choices)
+    * [Colour Scheme](#colour-scheme)
+    * [Typography](#typography)
+    * [Imagery](#imagery)
+- [User Stories](#user-stories)
+    * [Implemented Elements](#implemented-elements)
+      * [Forms](#forms)
+      * [Database Operations](#database-operations)
+      * [Additional Features](#additional-features)
+      * [Future Feature Enhancements](#future-feature-enhancements)
+- [Technologies Used](#technologies-used)
+    * [Front-End Technologies](#front-end-technologies)
+    * [Back-End Technologies](#back-end-technologies)
+    * [Deployment and Hosting](#deployment-and-hosting)
+    * [Version Control and Collaboration](#version-control-and-collaboration)
+- [Defensive Programming](#defensive-programming)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Acknowledgements](#acknowledgements)
 
-## Technologies Used
+</details>
 
-- **Backend**: Django
-- **Database**: PostgreSQL
-- **Frontend**: HTML, CSS, JavaScript (Django Templates)
-- **Other Tools**: Git
+## UX
 
+### Strategy
+The website targets food enthusiasts interested in exploring and purchasing traditional African foods and ingredients, as well as learning about their cultural significance and preparation methods through the blog.
+
+### Scope
+Functional requirements include:
+- User registration, login, and profile management.
+- Browsing products by categories and managing shopping cart and checkout.
+- Blog functionality where users can read and comment on posts related to African cuisine.
+- Admin capabilities to manage product listings, user accounts, blog posts, and comments.
+
+## Data Structure
+
+### Database Choice
+- **PostgreSQL**: Chosen for its robustness, scalability, and compatibility with Django.
+
+### Blog Models
+
+```markdown
+| Model   | Field         | Type                                    | Description                   |
+|---------|---------------|-----------------------------------------|-------------------------------|
+| Post    | title         | CharField(max_length=250)               | Title of the post             |
+|         | author        | ForeignKey(User)                        | Author of the post            |
+|         | image         | ImageField(upload_to='path')            | Image for the post            |
+|         | body          | TextField()                             | Content of the post           |
+|         | publish       | DateTimeField(auto_now_add=True)        | Publish date and time         |
+|         | status        | CharField(max_length=10, choices=CHOICES) | Status of the post          |
+| Comment | author        | CharField(max_length=100)               | Author of the comment         |
+|         | body          | TextField()                             | Content of the comment        |
+|         | created_on    | DateTimeField(auto_now_add=True)        | Creation date and time        |
+|         | post          | ForeignKey(Post)                        | Associated post               |
+|         | approved      | BooleanField(default=False)             | Whether the comment is approved |
+```
+
+### Order Models
+```markdown
+| Model         | Field            | Type                                 | Description                         |
+|---------------|------------------|--------------------------------------|-------------------------------------|
+| Order         | order_number     | CharField(max_length=32, editable=False) | Unique order number              |
+|               | user_profile     | ForeignKey(UserProfile, null=True)   | Associated user profile             |
+|               | full_name        | CharField(max_length=50)             | Full name of the customer           |
+|               | ...              | ...                                  | ...                                 |
+| OrderLineItem | order            | ForeignKey(Order)                    | Associated order                    |
+|               | product          | ForeignKey(Product)                  | Product purchased                   |
+|               | quantity         | IntegerField()                       | Quantity of the product             |
+|               | lineitem_total   | DecimalField(max_digits=6, decimal_places=2) | Total cost for line items       |
+```
+
+### Product Models
+```markdown
+| Model    | Field          | Type                                   | Description                       |
+|----------|----------------|----------------------------------------|-----------------------------------|
+| Product  | category       | ForeignKey(Category, null=True)        | Category of the product           |
+|          | sku            | CharField(max_length=254, null=True)   | Stock Keeping Unit                |
+|          | name           | CharField(max_length=254)              | Name of the product               |
+|          | description    | TextField()                            | Description of the product        |
+|          | price          | DecimalField(max_digits=6, decimal_places=2) | Price of the product           |
+|          | allergens      | ManyToManyField(Allergen)              | Allergens present in the product  |
+|          | image          | ImageField(null=True)                  | Image of the product              |
+``` 
+
+### Profile Models
+```markdown
+| Model    | Field          | Type                                   | Description                       |
+|----------|----------------|----------------------------------------|-----------------------------------|
+| UserProfile | user        | OneToOneField(User)                    | Associated user                   |
+|          | phone_number   | CharField(max_length=20)               | Phone number of the user          |
+|          | address_line1  | CharField(max_length=100)              | Primary address line              |
+|          | city           | CharField(max_length=50)               | City                              |
+|          | postcode       | CharField(max_length=20, null=True)    | Postal code                       |
+|          | country        | CountryField(blank_label='Country', null=True) | Country of residence          |
+``` 
+
+## Design Choices
+
+Design Choices
+Colour Scheme
+The colour scheme includes earth tones that represent African landscapes, with green highlights to evoke freshness and nature.
+
+Typography
+The primary font is 'Roboto', chosen for its readability and professional appearance across devices. Secondary font 'Montserrat' is used for headings to add character.
+
+Imagery
+High-quality images of the products and cultural symbols are used to entice customers and provide a visual representation of the blog content.
+
+User Stories
+Implemented Elements
+Forms
+User registration, login, and checkout forms are designed to be intuitive and secure.
+Database Operations
+CRUD operations for products, orders, blog posts, and comments.
+Additional Features
+Blog integration where users can engage with content related to African food and culture.
+Responsive design ensures functionality across all devices.
+Future Feature Enhancements
+Implementation of a recipe upload feature for users.
+Advanced search functionalities for blog posts and products.
+Technologies Used
+Front-End Technologies
+HTML5
+CSS3
+JavaScript: Used for dynamic features like the shopping cart.
+Back-End Technologies
+Django: The core framework for the application.
+PostgreSQL: For database management.
+Deployment and Hosting
+Heroku: Platform for hosting the application.
+Version Control and Collaboration
+Git: Used for version control.
+GitHub: Hosts the project repository and facilitates version tracking and collaboration.
+Defensive Programming
+Implemented input validations to prevent SQL injection and cross-site scripting, error handling to manage unexpected failures.
+
+Testing
+Includes automated tests written with Django's testing framework to ensure that all components of the application function as expected.
+
+Deployment
+Includes detailed steps on setting up the environment, configuring databases, and deploying to Heroku.
+
+Acknowledgements
+Thanks to all contributors, including the development team, project managers, and the community of users who provided valuable feedback.
