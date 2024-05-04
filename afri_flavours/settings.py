@@ -207,3 +207,4 @@ DEFAULT_FROM_EMAIL = 'hello@afri-flavours.com'
 
 
 print(f'DEBUG: {DEBUG}')
+
