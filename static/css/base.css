@@ -992,11 +992,6 @@ section.hero {
 	}
 
 
-.humberger__menu__nav ul {
-    list-style: none;
-    padding: 0;
-}
-
 .humberger__menu__nav ul li {
     padding: 10px;
     border-bottom: 1px solid #eee;
