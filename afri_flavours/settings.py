@@ -175,7 +175,7 @@ if 'USE_AWS' in os.environ:
         'CacheControl': 'max-age=94608000',
     }
     # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_STORAGE_BUCKET_NAME = 'afri-flavours-0342f46728dc'
     AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME', default='eu-west-1')
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
