@@ -740,6 +740,16 @@ section.hero {
 		right: 15px;
 		top: 22px;
 	}
+	.header__top {
+		display: none;
+	}
+	.header__menu {
+		display: none;
+	}
+	.header__cart {
+		text-align: center;
+		padding: 10px 0 24px;
+	}
 	.header .container {
 		position: relative;
 	}
@@ -1007,9 +1017,30 @@ section.hero {
         font-size: 1rem;
         line-height: 1.2;
     }
-	.message-container .toast {
-		font-size: 0.8rem;
-		width: 100%;
+	.message-container {
+		position: fixed;
+		top: 60px;
+		right: 50px;
+		z-index: 99999999999;
+	}
+
+	.custom-toast {
+		overflow: visible;
+	}
+
+	.toast-capper {
+		height: 2px;
+	}
+
+	.arrow-up {
+		width: 0;
+		height: 0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 10px solid black;
+		position: absolute;
+		top: -10px;
+		right: 70px;
 	}
 }
 
