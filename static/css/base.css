@@ -1007,7 +1007,10 @@ section.hero {
         font-size: 1rem;
         line-height: 1.2;
     }
-
+	.message-container .toast {
+		font-size: 0.8rem;
+		width: 100%;
+	}
 }
 
 /* Small Device = 320px */
