@@ -8,10 +8,8 @@ from .forms import ProductForm
 from .models import Product, Category, Review
 
 
-# Create your views here.
-
 def all_products(request):
-    """ A view to show all products, including sorting and search queries """
+    """A view to show all products, including sorting and search queries"""
     products = Product.objects.all()
     query = None
     categories = None
@@ -19,7 +17,6 @@ def all_products(request):
     direction = None
 
     if request.GET:
-        # Handling sorting
         sortkey = request.GET.get('sort')
         direction = request.GET.get('direction', '')
 
@@ -35,14 +32,12 @@ def all_products(request):
                 sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        # Handling category filtering
         categories = request.GET.get('category')
         if categories:
             category_list = categories.split(',')
             products = products.filter(category__name__in=category_list)
             categories = Category.objects.filter(name__in=category_list)
 
-        # Handling search queries
         query = request.GET.get('q')
         if query:
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -62,7 +57,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details"""
+    """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
 
@@ -76,7 +71,7 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """ Add a product to the store"""
+    """Add a product to the store"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -92,17 +87,12 @@ def add_product(request):
     else:
         form = ProductForm()
 
-    template = 'products/add_product.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
+    return render(request, 'products/add_product.html', {'form': form})
 
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store"""
+    """Edit a product in the store"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -120,18 +110,12 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
 
-    template = 'products/edit_product.html'
-    context = {
-        'form': form,
-        'product': product,
-    }
-
-    return render(request, template, context)
+    return render(request, 'products/edit_product.html', {'form': form, 'product': product})
 
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store"""
+    """Delete a product from the store"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
