@@ -11,13 +11,14 @@ import json
 import time
 
 
-class StripeWH_Handler:
+class StripewhHandler:
     """Handle Stripe webhooks"""
 
     def __init__(self, request):
         self.request = request
 
-    def _send_confirmation_email(self, order):
+    @staticmethod
+    def _send_confirmation_email(order):
         """Send the user a confimation_emails email"""
         cust_email = order.email
         subject = render_to_string(
@@ -34,7 +35,8 @@ class StripeWH_Handler:
             [cust_email]
         )
 
-    def handle_event(self, event):
+    @staticmethod
+    def handle_event(event):
         """
         Handle a generic/unknown/unexpected webhook event
         """
@@ -46,6 +48,7 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        global order
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -149,7 +152,8 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
 
-    def handle_payment_intent_payment_failed(self, event):
+    @staticmethod
+    def handle_payment_intent_payment_failed(event):
         """
         Handle the payment_intent.payment_failed webhook from Stripe
         """

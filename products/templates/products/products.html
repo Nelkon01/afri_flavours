@@ -30,8 +30,8 @@
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
-                            <select name="" id="sort-selector"
-                                    class="custom-select custom-select-sm rounded-0 border border-">
+                            <label for="sort-selector"></label><select name="" id="sort-selector"
+                                                                       class="custom-select custom-select-sm rounded-0 border border-">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort
                                     by...
                                 </option>
@@ -184,7 +184,7 @@
             let currentUrl = new URL(window.location);
 
             let selectedVal = selector.val();
-            if (selectedVal != "reset") {
+            if (selectedVal !== "reset") {
                 let sort = selectedVal.split("_")[0];
                 let direction = selectedVal.split("_")[1];
 

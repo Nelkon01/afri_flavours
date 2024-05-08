@@ -1,12 +1,13 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
-from .models import Post, Comment
+
 from .forms import PostForm, CommentForm
-from django.contrib import messages
+from .models import Post, Comment
 
 
 class PostList(ListView):

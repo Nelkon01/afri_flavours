@@ -15,6 +15,7 @@ from pathlib import Path
 
 import decouple
 from decouple import config
+from django.contrib import staticfiles
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +30,6 @@ SECRET_KEY = config('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = 'TRUE'
-
 
 ALLOWED_HOSTS = ['afri-flavours-0342f46728dc.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -170,7 +170,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if config('USE_AWS', default=False, cast=bool):
-# if 'USE_AWS' in os.environ:
+    # if 'USE_AWS' in os.environ:
+
     # Cache Control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -231,5 +232,3 @@ else:
 #     STRIPE_SECRET_KEY = decouple.config('STRIPE_SECRET_KEY')
 #     STRIPE_WH_SECRET = decouple.config('STRIPE_WH_SECRET')
 #     DEFAULT_FROM_EMAIL = 'hello@afri-flavours.com'
-
-
