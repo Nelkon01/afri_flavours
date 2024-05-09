@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+from profiles.views import custom_confirm_email
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +29,8 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profiles/', include('profiles.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
-
+    url(r'^accounts-rest/registration/account-confirm-email/(?P<key>.+)/$', custom_confirm_email,
+        name='account_confirm_email'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

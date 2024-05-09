@@ -1,15 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
-
+from django.urls import reverse
+from allauth.account.models import EmailConfirmation, EmailConfirmationHMAC
 from checkout.models import Order
 
 
 @login_required
 def profile(request):
-    """ Display the user'templates profile. """
+    """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -19,8 +20,7 @@ def profile(request):
             messages.success(request, 'Profile updated successfully')
         else:
             messages.error(request,
-                           ('Update failed. Please ensure '
-                            'the form is valid.'))
+                           'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -40,8 +40,8 @@ def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
-        f'This is a past confimation_emails for order number {order_number}. '
-        'A confimation_emails email was sent on the order date.'
+        f'This is a past confirmation email for order number {order_number}. '
+        'A confirmation email was sent on the order date.'
     ))
 
     template = 'checkout/checkout_success.html'
@@ -51,3 +51,23 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def custom_confirm_email(request, key):
+    try:
+        # Try to get the EmailConfirmation object using HMAC method
+        email_confirmation = EmailConfirmationHMAC.from_key(key)
+        if not email_confirmation:
+            # Fall back to the database lookup if HMAC fails
+            email_confirmation = EmailConfirmation.objects.get(key=key)
+    except EmailConfirmation.DoesNotExist:
+        # Handle the case where the key is not found
+        messages.error(request, "Invalid confirmation key")
+        return redirect('home')
+
+    # Confirm the email address
+    email_confirmation.confirm(request)
+
+    # Redirect to home page after confirmation
+    messages.success(request, "Email confirmed successfully! Please log in.")
+    return redirect(reverse('account_login'))
