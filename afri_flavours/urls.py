@@ -30,3 +30,6 @@ urlpatterns = [
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'afri_flavours.views.custom_404'
+handler500 = 'afri_flavours.views.custom_500'

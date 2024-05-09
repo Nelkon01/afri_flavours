@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = 'TRUE'
+DEBUG = 'FALSE'
 
 ALLOWED_HOSTS = ['afri-flavours-0342f46728dc.herokuapp.com', 'localhost', '127.0.0.1']
 

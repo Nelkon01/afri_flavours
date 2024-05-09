@@ -85,11 +85,13 @@
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                             style="width: 300px; height: 300px;"
                                              alt="{{ product.name }}">
                                     </a>
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                             style="width: 300px; height: 300px;"
                                              alt="{{ product.name }}">
                                     </a>
                                 {% endif %}
@@ -128,7 +130,7 @@
                                             {% endif %}
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
-                                                    <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                                    <a href="{% url 'edit_product' product.id %}" class="text-info">Edit</a>
                                                     <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
                                                 </small>
                                             {% endif %}
