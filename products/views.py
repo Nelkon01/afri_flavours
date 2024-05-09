@@ -7,6 +7,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import ProductForm
 from .models import Product, Category, Review
 
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
+
 
 def all_products(request):
     """A view to show all products, including sorting and search queries"""
@@ -113,14 +116,21 @@ def edit_product(request, product_id):
     return render(request, 'products/edit_product.html', {'form': form, 'product': product})
 
 
-@login_required
-def delete_product(request, product_id):
-    """Delete a product from the store"""
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+# Generic delete view for handling confirmation
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'products/confirm_delete.html'
+    success_url = reverse_lazy('products')
 
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            messages.error(request, 'Sorry, only store owners can do that.')
+            return redirect('home')
+        return super().get(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            messages.error(request, 'Sorry, only store owners can do that.')
+            return redirect('home')
+        messages.success(request, 'Product deleted!')
+        return super().delete(request, *args, **kwargs)
