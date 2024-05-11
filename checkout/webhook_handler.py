@@ -19,13 +19,13 @@ class StripewhHandler:
 
     @staticmethod
     def _send_confirmation_email(order):
-        """Send the user a confimation_emails email"""
+        """Send the user a confirmation_emails email"""
         cust_email = order.email
         subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            'checkout/templates/confirmation_emails/confirmation_email_subject.txt',
             {'order': order})
         body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
+            'checkout/templates/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
         send_mail(

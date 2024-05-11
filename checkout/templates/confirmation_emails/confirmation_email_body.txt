@@ -1,9 +1,9 @@
 Hello {{ order.full_name }}
 
-This is a  confirmation of your order at Boutique Ado. Your order information is below:
+This is a  confirmation of your order at Afri-Flavours Hub. Your order information is below:
 
 Order Number: {{ order.order_number }}
-Order Date: {{ order.order_date }}
+Order Date: {{ order.date }}
 
 Order Total: ${{ order.order_total }}
 Delivery: ${{ order.delivery_cost }}
