@@ -19,7 +19,6 @@ class PostList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Check if the user is a superuser
         context['is_superuser'] = self.request.user.is_superuser
         return context
 
@@ -50,18 +49,19 @@ class PostDetail(DetailView):
             return self.render_to_response(context)
 
 
-class PostCreateView(CreateView, LoginRequiredMixin):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'blog/post_create.html'
     success_url = reverse_lazy('blog:post_list')
+    login_url = '/login/'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
 
-class PostUpdateView(UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'blog/post_edit.html'
@@ -85,7 +85,7 @@ class PostUpdateView(UserPassesTestMixin, UpdateView):
             return False
 
 
-class PostDeleteView(UserPassesTestMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('blog:post_list')
@@ -93,5 +93,8 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post = self.get_object()
-        return self.request.user.is_superuser or self.request.user == post.author
-
+        if self.request.user.is_superuser or self.request.user == post.author:
+            return True
+        else:
+            messages.error(self.request, "You do not have permission to delete this post.")
+            return False

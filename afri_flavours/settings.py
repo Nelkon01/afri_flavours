@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = 'FALSE'
+# DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['afri-flavours-0342f46728dc.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -163,14 +163,14 @@ USE_TZ = True
 USE_AWS = config('USE_AWS', default=False, cast=bool)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if config('USE_AWS', default=False, cast=bool):
-    # if 'USE_AWS' in os.environ:
+# if config('USE_AWS', default=False, cast=bool):
+if 'USE_AWS' in os.environ:
 
     # Cache Control
     AWS_S3_OBJECT_PARAMETERS = {

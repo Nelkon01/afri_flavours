@@ -10,6 +10,8 @@ from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
 import stripe
 import json
 
@@ -129,6 +131,7 @@ def checkout(request):
     return render(request, template, context)
 
 
+@login_required
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
@@ -136,13 +139,19 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    # Check if the order has a user profile and if it matches the logged-in user
+    if order.user_profile and order.user_profile.user != request.user:
+        messages.error(request, "You do not have permission to view this order.")
+        return redirect('login')
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
-        order.user_profile = profile
-        order.save()
+        # Attach the user's profile to the order if not already attached
+        if not order.user_profile:
+            order.user_profile = profile
+            order.save()
 
-        # Save the user's info
+        # Save the user's info if requested
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
