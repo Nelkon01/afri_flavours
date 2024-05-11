@@ -15,13 +15,31 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Products</h2>
-                {% for c in current_categories %}
-                    <a href="{% url 'products' %}?category={{ c.name }}" class="category-badge text-decoration-none">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-black">
-                        {{ c.friendly_name }}
-                    </span>
-                    </a>
-                {% endfor %}
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle category-badge btn-outline-success p-2 mt-2" type="button"
+                                id="categoryDropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% if current_categories %}
+                                {% with current_categories|first as first_category %}
+                                    {{ first_category.friendly_name }}
+                                {% endwith %}
+                            {% else %}
+                                Select Category
+                            {% endif %}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <a class="dropdown-item {% if not current_categories %}active{% endif %}"
+                               href="{% url 'products' %}">
+                                All Products
+                            </a>
+                            {% for category in all_categories %}
+                                <a class="dropdown-item {% if current_categories and category in current_categories %}active{% endif %}"
+                                   href="{% url 'products' %}?category={{ category.name }}">
+                                    {{ category.friendly_name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
                 <hr class="w-50 mb-1">
             </div>
         </div>
@@ -66,7 +84,7 @@
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                                <span class="small "><a href="{% url 'products' %}" class="text-info">Products Home</a> | </span>
                             {% endif %}
                             {{ products|length }} Products{% if search_term %} found for
                             <strong>"{{ search_term }}"</strong>{% endif %}
@@ -85,13 +103,11 @@
                                 {% if product.image %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ product.image.url }}"
-                                             style="width: 300px; height: 300px;"
                                              alt="{{ product.name }}">
                                     </a>
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                             style="width: 300px; height: 300px;"
                                              alt="{{ product.name }}">
                                     </a>
                                 {% endif %}
@@ -165,7 +181,7 @@
         </div>
     </div>
     <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a href="" class="btt-link d-flex h-100">
+        <a href="" class="btt-link d-flex h-100 text-info">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>
     </div>

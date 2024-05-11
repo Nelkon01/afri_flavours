@@ -884,6 +884,13 @@ a.category-badge > span.badge:hover {
     font-size: 14px;
 }
 
+img.card-img-top.img-fluid {
+    object-fit: cover;
+    height: 300px;
+    width: 300px;
+	border-radius: 15px;
+}
+
 .btn-outline-success {
     color: #28a745;
     border-color: #28a745;
