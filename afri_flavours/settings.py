@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'FALSE'
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['afri-flavours-0342f46728dc.herokuapp.com', 'localhost', '127.0.0.1']
@@ -187,7 +187,7 @@ if config('USE_AWS', default=False, cast=bool):
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIAFILES_LOCATION = 'media'
+    MEDIAFILES_LOCATION = '/media/'
 
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}'
@@ -218,16 +218,3 @@ else:
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
-
-# if config('USE_AWS', default=False, cast=bool):
-#     STRIPE_CURRENCY = 'usd'
-#     STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
-#     STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
-#     STRIPE_WH_SECRET = config('STRIPE_WH_SECRET')
-#     DEFAULT_FROM_EMAIL = 'hello@afri-flavours.com'
-# else:
-#     STRIPE_CURRENCY = 'usd'
-#     STRIPE_PUBLIC_KEY = decouple.config('STRIPE_PUBLIC_KEY')
-#     STRIPE_SECRET_KEY = decouple.config('STRIPE_SECRET_KEY')
-#     STRIPE_WH_SECRET = decouple.config('STRIPE_WH_SECRET')
-#     DEFAULT_FROM_EMAIL = 'hello@afri-flavours.com'
