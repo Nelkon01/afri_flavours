@@ -1,8 +1,9 @@
 # Afri-Flavours Hub E-Commerce Website
 
 ## Overview
-
+![logo](https://github.com/Nelkon01/afri_flavours/assets/54297166/7f0b5b2b-2777-425a-8139-91896aff7718)
 Afri-Flavours Hub is a food e-commerce website developed using Django. It features user authentication, product management, a shopping cart, order processing, payment integration, a blog for sharing recipes and stories, and an admin dashboard for managing the website.
+
 ## Click [here](https://afri-flavours-0342f46728dc.herokuapp.com//) to live website.
 ## Table of Contents
 
@@ -120,18 +121,25 @@ Functional requirements include:
 ``` 
 
 ### ERD Diagram
-![output.png](..%2F..%2Foutput.png)
+![output](https://github.com/Nelkon01/afri_flavours/assets/54297166/1806d4ba-8cdf-4f5e-8e99-b166a0a1fb16)
+
 ## Design Choices
 
-Design Choices
-Colour Scheme
+### Colour Scheme
 The colour scheme includes earth tones that represent African landscapes, with green highlights to evoke freshness and nature.
-![Color Palette.png](..%2F..%2F..%2FDownloads%2FColor%20Palette.png)
-Typography
-The primary font is 'Roboto', chosen for its readability and professional appearance across devices. Secondary font 'Montserrat' is used for headings to add character.
+![Color Palette](https://github.com/Nelkon01/afri_flavours/assets/54297166/b86b77a0-3e36-4225-83c1-f555bc2896a7)
 
-Imagery
-High-quality images of the products and cultural symbols are used to entice customers and provide a visual representation of the blog content.
+### Typography
+The primary font used is **'Roboto'**, selected for its clarity and professional appearance, ensuring readability across all devices. **'Montserrat'** is utilized as the secondary font for headings, adding a distinctive character and enhancing the visual hierarchy of the content.
+
+### Imagery
+High-quality imagery is integral to the website, showcasing products and cultural symbols that appeal to customers and visually represent blog content.
+- **Hero Image:** Features a captivating image of a woman holding premium quality fruits, symbolizing the superior foodstuff and ingredients available in the store.
+- **Logo:** The logo incorporates the website's name, food-related icons, and a map of Africa, highlighting the store’s focus on African food and groceries, thereby reinforcing the geographical essence of the products offered.
+
+### Favicon
+The website's favicon mirrors the logo, maintaining brand consistency and enhancing the site's identity. This choice ensures that the website is easily recognizable and aligned with its overall branding strategy.
+
 
 ## User Stories
 
