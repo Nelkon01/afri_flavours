@@ -189,6 +189,237 @@ The website's favicon mirrors the logo, maintaining brand consistency and enhanc
 * Save payment details for faster transactions.
 
 ### Implemented Elements
+### Features
+**Navigation:**
+
+- **Desktop**
+
+
+<hr>
+  
+- **Tablet**
+
+
+<hr> 
+
+- **Mobile**
+
+
+<hr>
+
+
+### User Access Levels
+
+- **Logged in as SuperUser**
+  - Superusers have full access to all admin features and can manage products, orders, and user permissions.
+
+<hr>
+
+- **Not logged in**
+  - Visitors can browse products and read blog posts but must log in to make purchases or leave comments.
+
+<hr>
+
+- **Logged in as Regular User**
+  - Regular users can browse, purchase products, and interact with the blog content.
+
+<hr>
+
+### Navigation
+
+- **Standard Hamburger Menu for Mobile:**
+  - On mobile devices, a "hamburger" menu is used to simplify navigation, providing a consistent interface for users on smaller screens.
+
+<hr>
+
+### Authentication
+
+- **Sign in/Sign up:**
+  - Our website offers a streamlined and user-centric sign-in and sign-up process prioritizing convenience and accessibility.
+  - **Easy Password Recovery:** The sign-in page includes a "Forgot Password" link, allowing users to reset their passwords easily.
+  - **Sign-in:** Users can log in via username or email. New users are provided with a prominent link to sign up.
+  - **Sign-up:** The sign-up page links to the sign-in page for registered users, displays clear error messages for duplicate usernames or emails, and ensures unique usernames and emails for security.
+
+<hr>
+
+### Products Page
+
+- **Overview:**
+  - Our Products Page provides a seamless shopping experience, enhancing the journey from browsing to purchasing.
+  - **Quick Buy Buttons:** Each product on the list page features "Quick Buy" buttons, allowing users to add items to their cart swiftly.
+  - **Product Information:** Users receive essential details about each product, ensuring informed decisions.
+  - **Quantities & Descriptions:** The product detail page includes clear information such as name, price, rating, and category. Users can easily select desired quantities.
+  - **Allergen Information:** Allergen details are provided for users with dietary restrictions, ensuring transparency and safety.
+
+<hr>
+
+### Bag & Checkout
+
+- **Functionality:**
+  - Our Bag & Checkout process ensures a smooth transaction for users.
+  - **Bag Page:** Users can manage their selected products, adjust quantities, or remove items, with product images, names, prices, and SKUs displayed.
+  - **Checkout Page:** Designed for simplicity and security, the checkout form collects essential shipping and payment details. Users can review their order in a summary before completing the purchase.
+
+<hr>
+
+### Profile
+
+- **Features:**
+  - The profile feature provides a personalized hub for managing account details and tracking order history.
+  - **My Profile Page:** Users can view and update their default delivery information, ensuring up-to-date shipping details.
+  - **Order History:** Users have access to a comprehensive list of past orders, organized by order number, facilitating easy reordering or tracking.
+
+<hr>### User Access Levels
+
+- **Logged in as SuperUser**
+  - Superusers have full access to all admin features and can manage products, orders, and user permissions.
+
+<hr>
+
+- **Not logged in**
+  - Visitors can browse products and read blog posts but must log in to make purchases or leave comments.
+
+<hr>
+
+- **Logged in as Regular User**
+  - Regular users can browse, purchase products, and interact with the blog content.
+
+<hr>
+
+### Navigation
+
+- **Standard Hamburger Menu for Mobile:**
+  - On mobile devices, a "hamburger" menu is used to simplify navigation, providing a consistent interface for users on smaller screens.
+
+<hr>
+
+### Authentication
+
+- **Sign in/Sign up:**
+  - Our website offers a streamlined and user-centric sign-in and sign-up process prioritizing convenience and accessibility.
+  - **Easy Password Recovery:** The sign-in page includes a "Forgot Password" link, allowing users to reset their passwords easily.
+  - **Sign-in:** Users can log in via username or email. New users are provided with a prominent link to sign up.
+  - **Sign-up:** The sign-up page links to the sign-in page for registered users, displays clear error messages for duplicate usernames or emails, and ensures unique usernames and emails for security.
+
+<hr>
+
+### Products Page
+
+- **Overview:**
+  - Our Products Page provides a seamless shopping experience, enhancing the journey from browsing to purchasing.
+  - **Quick Buy Buttons:** Each product on the list page features "Quick Buy" buttons, allowing users to add items to their cart swiftly.
+  - **Product Information:** Users receive essential details about each product, ensuring informed decisions.
+  - **Quantities & Descriptions:** The product detail page includes clear information such as name, price, rating, and category. Users can easily select desired quantities.
+  - **Allergen Information:** Allergen details are provided for users with dietary restrictions, ensuring transparency and safety.
+
+<hr>
+
+### Bag & Checkout
+
+- **Functionality:**
+  - Our Bag & Checkout process ensures a smooth transaction for users.
+  - **Bag Page:** Users can manage their selected products, adjust quantities, or remove items, with product images, names, prices, and SKUs displayed.
+  - **Checkout Page:** Designed for simplicity and security, the checkout form collects essential shipping and payment details. Users can review their order in a summary before completing the purchase.
+
+<hr>
+
+### Profile
+
+- **Features:**
+  - The profile feature provides a personalized hub for managing account details and tracking order history.
+  - **My Profile Page:** Users can view and update their default delivery information, ensuring up-to-date shipping details.
+  - **Order History:** Users have access to a comprehensive list of past orders, organized by order number, facilitating easy reordering or tracking.
+
+<hr>
+
+### Blog
+
+- **Content:**
+  - Our blog offers a wealth of insights related to African food, recipes, and more.
+  - **Informative Content:** The blog includes health tips, wellness advice, and recipes, with easy navigation through posts.
+  - **Post Details:** Users can read entire posts, interact by liking, and see related products for a seamless content-commerce experience.
+
+<hr>
+
+### Comments
+
+- **Engagement:**
+  - The comment feature allows users to interact with blog content, fostering community engagement.
+
+<hr>
+
+### Messages & Notifications
+
+- **Feedback:**
+  - Success messages are displayed for actions such as logging in, adding products to the bag, updating the bag, and removing products.
+  - Alerts notify superusers/admins of edits to products.
+
+<hr>
+
+### Admin Permissions
+
+- **Capabilities:**
+  - Admins can edit or delete products on the products page.
+  - Admins can add products via the product management section.
+  - Admins can edit or delete comments on blog posts.
+
+<hr>
+
+### Error Handling
+
+- **Error Pages:**
+  - **404 Error Page:** Customized page displayed when a page doesn’t exist.
+  - **403 Error Page:** Displayed when access is restricted.
+  - **500 Error Page:** Shown for server errors.
+  - These pages provide information about the error and suggested next steps.
+
+<hr>
+
+
+### Blog
+
+- **Content:**
+  - Our blog offers a wealth of insights related to African food, recipes, and more.
+  - **Informative Content:** The blog includes health tips, wellness advice, and recipes, with easy navigation through posts.
+  - **Post Details:** Users can read entire posts, and leave comments to share their thoughts. 
+
+<hr>
+
+### Comments
+
+- **Engagement:**
+  - The comment feature allows users to interact with blog content, fostering community engagement.
+
+<hr>
+
+### Messages & Notifications
+
+- **Feedback:**
+  - Success messages are displayed for actions such as logging in, adding products to the bag, updating the bag, and removing products.
+  - Alerts notify superusers/admins of edits to products.
+
+<hr>
+
+### Admin Permissions
+
+- **Capabilities:**
+  - Admins can edit or delete products on the products page.
+  - Admins can add products via the product management section.
+  - Admins can edit or delete comments on blog posts.
+
+<hr>
+
+### Error Handling
+
+- **Error Pages:**
+  - **404 Error Page:** Customized page displayed when a page doesn’t exist.
+  - **403 Error Page:** Displayed when access is restricted.
+  - **500 Error Page:** Shown for server errors.
+  - These pages provide information about the error and suggested next steps.
+
+<hr>
+
+
 #### Forms
 *  User registration, login, and checkout forms are designed to be intuitive and secure.
 #### Database Operations
@@ -197,8 +428,19 @@ The website's favicon mirrors the logo, maintaining brand consistency and enhanc
 * Blog integration where users can engage with content related to African food and culture.
 * Responsive design ensures functionality across all devices.
 ### Future Feature Enhancements
-* Implementation of a recipe upload feature for users.
-* Advanced search functionalities for blog posts and products.
+
+* 
+
+|   | **FEATURES**                                                                                                                                    | **PRIORITY** |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| 1 | Implementing a feature that will allows users to favorite products for later with a wishlist,  ensuring they never miss out on products.        | LOW          |
+| 2 | Implementing a live chat support system to provide instant assistance and answer any queries.                                                   | HIGH         |
+| 3 | Offer personalized discounts based on user preferences and purchasing behavior.                                                                 | MEDIUM       |
+| 4 | Introduce an Affiliate Program, giving the opportunity to earn while users shop and refer others to our platform.                               | MEDIUM       |
+| 5 | Support to cater to a wider user base, allowing users from different regions and languages preferences to access and use the Afri-Flavours shop | HIGH         |
+| 6 | Implementation of a recipe upload feature for users.                                                                                            | HIGH         |
+| 7 | Advanced search functionalities for blog posts and products.                                                                                    | HIGH         |
+
 ### Technologies Used
 #### Front-End Technologies
 * HTML5
