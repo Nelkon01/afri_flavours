@@ -347,37 +347,499 @@ The website's favicon mirrors the logo, maintaining brand consistency and enhanc
 
 * 
 
-|   | **FEATURES**                                                                                                                                    | **PRIORITY** |
-|---|-------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| 1 | Implementing a feature that will allow users to favourite products for later with a wishlist,  ensuring they never miss out on products.        | LOW          |
-| 2 | Implementing a live chat support system to provide instant assistance and answer queries.                                                   | HIGH         |
-| 3 | Offer personalized discounts based on user preferences and purchasing behaviour.                                                                 | MEDIUM       |
-| 4 | Introduce an Affiliate Program, allowing earning while users shop and refer others to our platform.                               | MEDIUM       |
+|   | **FEATURES**                                                                                                                                   | **PRIORITY** |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| 1 | Implementing a feature that will allow users to favourite products for later with a wishlist,  ensuring they never miss out on products.       | LOW          |
+| 2 | Implementing a live chat support system to provide instant assistance and answer queries.                                                      | HIGH         |
+| 3 | Offer personalized discounts based on user preferences and purchasing behaviour.                                                               | MEDIUM       |
+| 4 | Introduce an Affiliate Program, allowing earning while users shop and refer others to our platform.                                            | MEDIUM       |
 | 5 | Support to cater to a wider user base, allowing users from different regions and language preferences to access and use the Afri-Flavours shop | HIGH         |
-| 6 | Implementation of a recipe upload feature for users.                                                                                            | HIGH         |
-| 7 | Advanced search functionalities for blog posts and products.                                                                                    | HIGH         |
+| 6 | Implementation of a recipe upload feature for users.                                                                                           | HIGH         |
+| 7 | Advanced search functionalities for blog posts and products.                                                                                   | HIGH         |
 
-### Technologies Used
-#### Front-End Technologies
-* HTML5
-* CSS3
-* JavaScript: Used for dynamic features like the shopping cart.
-#### Back-End Technologies
-* Django: The core framework for the application.
-* PostgreSQL: For database management.
-#### Deployment and Hosting
-* Heroku: Platform for hosting the application.
-#### Version Control and Collaboration
-* Git: Used for version control.
-* GitHub: Hosts the project repository and facilitates version tracking and collaboration.
-#### Defensive Programming
-* Implemented input validations to prevent SQL injection and cross-site scripting, error handling to manage unexpected failures.
+## Technologies Used
+Several technologies have been used to create this project namely:
 
-### Testing
-Includes automated tests written with Django's testing framework to ensure that all components of the application function as expected.
+| Technology               | Description                                                                                                     |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Django                   | A high-level Python web framework used for rapid development, database interactions, and secure authentication. |
+| Python                   | The core programming language used to build the entire application, ensuring it is fully functional.            |
+| JavaScript               | Provides dynamic interactivity to the messages and enhances the functionality of the timepicker.                |
+| Bootstrap                | Ensures a responsive design with its comprehensive front-end component library.                                 |
+| Git                      | Version control system used for tracking changes and maintaining the project's codebase.                        |
+| PostgreSQL               | Relational database management system employed to store and manage the project's data.                          |
+| GitHub                   | Platform used for development, code management, and tracking changes.                                           |
+| Font Awesome             | Library used to obtain icons, enhancing the overall design of the website.                                      |
+| Google Developer Tools   | Primary tool for bug detection, testing responsiveness, and resolving issues across the website.                |
+| Heroku                   | Platform used to deploy the website.                                                                            |
+| Jigsaw                   | Tool used to validate CSS code.                                                                                 |
+| W3 HTML                  | Tool used to validate HTML code.                                                                                |
+| Jshint                   | Tool used to validate JavaScript code.                                                                          |
+| Coloors                  | Tool used to generate the color palette for the website design.                                                 |
+| AWS Amazon               | Service used to store all static files and images.                                                              |
+| Stripe                   | Platform used to handle all payments on the website.                                                            |
+| Lighthouse               | Tool used to test the accessibility and performance of the website.                                             |
+| Balsamiq                 | Tool used to create wireframes, providing a visual representation of the website layout and structure.          |
+| Markdown Table Generator | Tool used to create tables in Markdown format.                                                                  |
+| Pycharm                  | Integrated development environment (IDE) used to develop the project.                                           |
 
-### Deployment
-Includes detailed steps on setting up the environment, configuring databases, and deploying to Heroku.
+### Languages
+- HTML
+- CSS
+- Python
+- JavaScript 
 
-### Acknowledgements
-Thanks to all contributors, including the development team, project managers, and the community of users who provided valuable feedback.
+### Frameworks, Libraries & Programs Used
+- Django
+- Bootstrap
+- PostgreSQL
+- GitHub
+- Font Awesome
+- Google Developer Tools
+- Heroku
+- W3 HTML
+- Jshint
+- Coloors
+- AWS Amazon
+- Lighthouse
+- Balsamiq
+- AmIResponsive
+- Markdown Table Generator
+
+## Deployment
+### Prerequisites
+To run this project, you need a ElephantSQL, AWS Amazon, Sripe & Gmail account:
+
+**ElephantSQL Set Up Account:**
+1. Visit the [ElephantSQL](https://www.elephantsql.com/) website.
+2. Sign up for an account if you don't have one.
+3. After signing in, you will be redirected to the ElephantSQL dashboard.
+4. Click on "Create New Instance" to create a new PostgreSQL database instance.
+5. Choose a suitable plan for your needs.
+6. Configure the database settings, such as the region and database name.
+7. Click on "Create" to create the database instance.
+8. Once the instance is created, you will see the details of your database, including the hostname, port, username and password.
+**Retrieve the Database URL:**
+1. In the ElephantSQL dashboard, locate your newly created database instance.
+2. Click on the instance to view its details.
+3. In the "Details" tab, you will find the connection details for your database, including the URL.
+**Set Environmental Variables:**
+1. After obtaining the database URL, you need to set it as an environmental variable in your development environment.
+2. The specific steps to set environmental variables depend on your operating system and development environment.
+3. In general, you can set the environmental variable by adding the following line to your **'env.py'** file or the environment configuration of your development enviroment: **DATABASE_URL=<YOUR_DATABASE_URL>**
+4. Replace **"<YOUR_DATABASE_URL>"** with the actual database URL you obtained from ElephantSQL.
+
+<hr>
+
+**AWS Amazon Set Up Account/ AWS S3 Bucket:**
+1. Create an [account](https://aws.amazon.com/) on AWS Amazon if you don't have one.
+2. Login to your account and within the search bar type in 'S3'.
+3. Within the S3 page click on the "Create Bucket".
+4. Put the name that you want (i'd recommend naming your bucket to match your Heroku app name) on the bucket and select the region which is closest to you.
+5. Uncheck "Block Public Access" and acknowledge that the bucket will be made public. Click on "Create Bucket"
+6. Inside the bucket click on "Properties" tab. Below "Static Website Hosting" click "Edit" and change the "Static Website Hosting" hosting option to "Enabled". Copy the default values for the index and error documents and click "Save".
+7. Underneath "Object Ownership" select "ACLs enabled".
+10. Click on the "Permissions" tab, paste that into the Cross-origin resource sharing (CORS) section:
+  ```
+    [
+        {
+            "AllowedHeaders": [
+            "Authorization"
+            ],
+            "AllowedMethods": [
+            "GET"
+            ],
+            "AllowedOrigins": [
+            "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+  ```
+10. Within the "Bucket Policy" section. Click "Edit" and then "Policy Generator".
+11. Click the "Select Type of Policy" dropdown and select "S3 Bucket Policy" and within "Pricipal" type "*" to allow all principals. In "Actions" section select "GetObject".
+12. Copy the "ARN" that is located in the previous tab.
+13. Back to AWS policy generator, paste it into the "Amazon Resource Name (ARN)" box at the bottom. Click on the "Add Statement" button, then "Generate Policy".
+14. Copy the policy that's been generated and paste into the "Bucket Policy Editor".
+15. Before saving, add /* at the end of your "Resource Key", this will allow access to all resources within the bucket.
+16. Once saved, scroll down to the "Access Control List (ACL)" and click "Edit".
+17. Next to "Everyone (public access)", check the "list" checkbox and save your changes.
+
+**Identify and Access Management (IAM) Set Up**
+1. Search for IAM within the AWS navigation bar and select it.
+2. Click "User Groups" that can be seen in the side-bar and then click "Create group" and name the group "manage-your-project-name".
+3. Click "Policies" and then "Create Policy". There is now a button to go to the next page to add tags. Tags are
+optional, but you must click it to get to the review policy page.
+4. Navigate to the JSON tab and click "Import Managed Policy", within here search for "S3" and select "AmazonS3FullAccess" followed by "Import".
+5. Follow the exemple bellow:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": [
+                "YOUR-ARN-NO-HERE",
+                "YOUR-ARN-NO-HERE/*"
+            ]
+        }
+    ]
+}
+
+```
+1. Ensure the policy has been given a name and a short description, the click "Create Policy".
+2. Click "User Groups". Select your group.
+3. Go to the "permissions" tab, open the "Add permissions" dropdown, and click "Attach policies".
+4. Select the policy and click "Add permissions" at the bottom.
+
+**Retrieve access keys**
+1. Go to IAM and select 'Users'.
+2. Select the user for whom you wish to create a CSV file.
+3. Select the 'Security Credentials' tab
+4. Scroll to 'Access Keys' and click 'Create access key'
+5. Select 'Application running outside AWS', and click next
+6. On the next screen, you can leave the 'Description tag value' blank. Click 'Create Access Key'
+7. Click the 'Download .csv file' button
+
+**Connecting AWS to the Project**
+1. Within your terminal install the following packages:
+
+```
+  pip3 install boto3
+  pip3 install django-storages
+```
+
+2. Freeze the requirement by typing:
+
+```
+  pip3 freeze > requirements.txt
+```
+3. Add "storages" to your installed apps within your settings.py file.
+4. At the bottom of the settings.py file add the following code.
+```
+if 'USE_AWS' in os.environ:
+   # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+  # Bucket Config
+  AWS_STORAGE_BUCKET_NAME = 'bucket-name'
+  AWS_S3_REGION_NAME = 'region-name'
+  AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+  AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+  AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+```
+5. Add the following keys in you Heroku app config Vars: 'AWS_ACCESS_KEY_ID' & 'AWS_SECRET_ACCESS_KEY'. This can be found in your CSV file.
+6. Add the key "USE_AWS", and set to True in your Heroku app.
+7. Remove the "DISABLE_COLLECSTATIC" variable from Heroku.
+8. Inside the settings.py file, add the following code into your Bucket config if statement:
+```
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+
+9. In your root directory create a file called "custom_storages.py". Add the following code:
+```
+  from django.conf import settings
+  from storages.backends.s3boto3 import S3Boto3Storage
+  
+  
+  class StaticStorage(S3Boto3Storage):
+      location = settings.STATICFILES_LOCATION
+  
+  
+  class MediaStorage(S3Boto3Storage):
+      location = settings.MEDIAFILES_LOCATION
+```
+10. Go back to your AWS S3 bucket and click on "Create Folder", name this folder as "Media".
+11. In the "Media" file click "Upload > Add files" and select the images for your site.
+12. Under "Permissions" select the option "Grant public-read access" and click  "Upload".
+
+## Stripe Payments 
+
+- The Stripe Payments is set up as the online payment processing and credit card processing platform for the purchases.
+You will need a stripe account which you can sign up for [here](https://dashboard.stripe.com/register)
+
+### Payments
+- To set up stripe payments you can follow their guide [here](https://stripe.com/ie/guides)
+
+### API Keys
+1. Click on 'Developers' in the navbar-side.
+2. Beside 'Overview' click on the API Keys and you will see your 'Publishable key' & 'Secret key'.
+
+### Adding your Keys to your Heroku app
+
+1. Go to you app in Heroku website, navigate to the config vars section under settings.
+2. Add your generated keys in the config vars:
+  ```
+  STRIPE_PUBLIC_KEY = '<INSERT_YOUR_PUBLISHABLE_KEY>'
+  STRIPE_SECRET_KEY = '<INSERT_YOUR_SECRET_KEY>'
+  ```
+
+3. Finally, back in your settings.py file in django, insert the following keys, near to the bottom of the file:
+  ```
+  STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+  STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+  ```
+
+## Gmail Set up (Sending Real Emails with Django)
+
+- If you've already got a Gmail account you can just log in and go to your settings.
+- If you don't have one just go to [gmail.com](gmail.com) and create an account before starting this.
+
+1. To prepare Gmail, we need to go to the account settings in the upper right. Click accounts and import.
+2. Then other Google account settings.
+3. Go to the security tab and under, signing into Google. Turn on 2-step verification.
+4. This will allow you to create an app password specific to your Django app. That will allow it to authenticate and use our Gmail account to send emails.
+5. To turn it on just click get started, enter your password.
+6. Then you'll have to select a verification method.
+7. You can select to send a verification code via text or you can choose any method you prefer.
+8. Once you've verified and turned on two-step verification. You'll see a new option called app passwords under the signing in to Google heading.
+9. Click on that enter your password again if needed.
+10. Then on the app password screen, select mail for the app. Then under device type, select other and type in Django.
+11. With that done we'll be given a 16 character password which I'll copy.
+12.  then go to my Heroku app to enter it as a config variable.
+13. Call the variable EMAIL_HOST_PASS. And paste it in and click Add. Also need another variable called EMAIL_HOST_USER.
+14. The last step then is just to add a few settings to your settings.py, add the following code:
+
+  ```
+  if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = '<your_example_email_here>@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+  ```
+    
+## Fork and Clone the Repository
+To make a copy or ‘fork’ the repository:
+
+1. Login to your own GitHub account.
+2. Navigate to [my repository](https://github.com/Nelkon01/afri_flavours).
+3. In the top right corner of the page, click 'fork' option to create and copy of the original.
+
+## Making a Local Clone
+1. Under the repository name, click on the ‘code’ tab.
+2. In the clone box, HTTPS tab, click on the clipboard icon .
+3. In your IED open GitBash.
+4. Changed the current working directory to the location you want the cloned directory to be made.
+5. Type ‘git clone’ and then paste the URL copied from GitHub.
+6. Press enter and the local clone will be created.
+
+## Development Deployment
+
+### Running the Project in PyCharm
+
+To get started with local development in PyCharm, follow these steps:
+
+1. **Clone the Repository:**
+   - Open PyCharm.
+   - Go to `File` > `New Project from Version Control` > `Git`.
+   - Enter the repository URL and click `Clone`.
+
+2. **Create a Virtual Environment:**
+   - Open the terminal in PyCharm.
+   - Run the following command to create a virtual environment:
+     ```bash
+     python3 -m venv venv
+     ```
+   - Activate the virtual environment:
+     - On Windows:
+       ```bash
+       venv\Scripts\activate
+       ```
+     - On macOS and Linux:
+       ```bash
+       source venv/bin/activate
+       ```
+
+3. **Install Dependencies:**
+   - With the virtual environment activated, install the required packages by running:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+4. **Set Up Environment Variables:**
+   - Create a file named `.env` in the root directory of your project.
+   - Add the following environment variables to the `.env` file:
+     ```plaintext
+     DATABASE_URL=<YOUR_DATABASE_URL>
+     DEVELOPMENT=True
+     SECRET_KEY=<YOUR_SECRET_KEY>
+     AWS_ACCESS_KEY_ID=<YOUR_AWS_ACCESS_KEY_ID>
+     AWS_SECRET_ACCESS_KEY=<YOUR_AWS_SECRET_ACCESS_KEY>
+     EMAIL_HOST_PASS=<YOUR_EMAIL_HOST_PASS>
+     EMAIL_HOST_USER=<YOUR_EMAIL_HOST_USER>
+     ```
+
+5. **Configure Django Settings:**
+   - Open `settings.py` in your Django project.
+   - Add the following code to load the environment variables:
+     ```python
+     from decouple import config
+
+
+     DATABASE_URL = config('DATABASE_URL')
+     SECRET_KEY = config('SECRET_KEY')
+     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+     EMAIL_HOST_PASS = config('EMAIL_HOST_PASS')
+     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+     ```
+
+6. **Apply Database Migrations:**
+   - Run the following command to apply database migrations:
+     ```bash
+     python manage.py migrate
+     ```
+
+7. **Create a Superuser:**
+   - Run the following command to create a superuser account:
+     ```bash
+     python manage.py createsuperuser
+     ```
+
+8. **Run the Development Server:**
+   - Start the development server by running:
+     ```bash
+     python manage.py runserver
+     ```
+
+9. **Access the Application:**
+   - Open your web browser and go to `http://127.0.0.1:8000` to see your application running locally.
+
+---
+
+### Additional Configuration
+
+**Debugging:**
+- To set up debugging in PyCharm, configure a Django Server run configuration:
+  - Go to `Run` > `Edit Configurations`.
+  - Click on the `+` button and select `Django Server`.
+  - Set the `Host` to `127.0.0.1` and the `Port` to `8000`.
+  - Apply the changes and start debugging.
+
+**Git Integration:**
+- To enable Git integration in PyCharm:
+  - Go to `VCS` > `Enable Version Control Integration`.
+  - Select `Git` and click `OK`.
+  - Use the `Commit` and `Push` buttons in the toolbar to manage your commits and push them to the repository.
+
+With these steps, you should be able to run and develop your project in PyCharm effectively.
+
+## Production Deployment
+
+To deploy your application on Heroku, follow the steps below:
+
+1. **Create a Heroku Account:**
+   - Visit the [Heroku](https://signup.heroku.com/login) website.
+   - Sign up for a free account or log in if you already have one.
+
+2. **Create a New Heroku App:**
+   - Once you are logged in to your Heroku account, click on the "New" button and select "Create new app".
+   - Choose a unique name for your app. This name will be used in the App's URL.
+   - Select the region closest to your location for better performance.
+
+3. **Connect the App to Your Git Repository:**
+   - After creating the app, go to the "Deploy" tab in your app's dashboard.
+   - Choose the deployment method based on your Git repository: (e.g. GitHub).
+   - Connect your app to the appropriate repository and branch.
+
+4. **Configure Environment Variables:**
+   - In the "Settings" tab of your Heroku app's dashboard, locate the "Config Vars" section.
+   - Set the necessary environment variables required for your application.
+   - Click on the "Reveal Config Vars" button to add the key-value pairs for your environment variables:
+
+     | **KEY**               | **VALUE**          |
+     |-----------------------|--------------------|
+     | DATABASE_URL          | `<YOUR_VALUE>`     |
+     | AWS_SECRET_ACCESS_KEY | `<YOUR_VALUE>`     |
+     | AWS_ACCESS_KEY_ID     | `<YOUR_VALUE>`     |
+     | USE_AWS               | `True`             |
+     | EMAIL_HOST_PASS       | `<YOUR_VALUE>`     |
+     | EMAIL_HOST_USER       | `<YOUR_VALUE>`     |
+     | SECRET_KEY            | `<YOUR_VALUE>`     |
+     | STRIPE_PUBLIC_KEY     | `<YOUR_VALUE>`     |
+     | STRIPE_SECRET_KEY     | `<YOUR_VALUE>`     |
+     | STRIPE_WH_SECRET      | `<YOUR_VALUE>`     |
+     | COLLECT_STATIC        | `1`                |
+
+5. **Deploy the Application:**
+   - In the "Deploy" tab, scroll down to the "Manual Deploy" section.
+   - Click on the "Deploy Branch" button to deploy your application.
+   - Heroku will start building and deploying your application based on the code from your connected Git repository.
+
+6. **Monitor the Deployment:**
+   - Once the deployment process is complete, you can view the deployment logs to ensure everything is working correctly.
+   - In the "Activity" tab, you will find the deployment logs, which can help you identify any issues or errors that may have occurred during the deployment process.
+
+7. **Access Your Deployed Application:**
+   - After a successful deployment, you can access your application by visiting the URL provided in your Heroku app's dashboard.
+   - Click on the "Open App" button or open the URL in a web browser to see your application live.
+
+## Credits
+Throughout the process of building the PowerProtein website, I would like to acknowledge the following:
+
+**Online Sources:**
+- [Code Institue Template](https://github.com/Code-Institute-Org/ci-full-template)
+- [Stack Overflow](https://stackoverflow.co/)
+- [Django Documentation](https://docs.djangoproject.com/en/4.2/)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
+**Modules and Libraries:**
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [JavaScript](https://www.javascript.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [jQuery](https://jquery.com/)
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+- [AWS](https://aws.amazon.com/)
+- [Stripe](https://stripe.com/ie)
+- [Git](https://git-scm.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Pexels](https://www.pexels.com/)
+- [Markdown Best Practices](https://www.markdownguide.org/basic-syntax/)
+
+## Content
+
+- The blog post content was taken from here:
+  - [Chef Lola's kitchen Amala Recipe](https://cheflolaskitchen.com/amala-recipe/)
+## Media
+- [FreePik](https://www.freepik.com/) - The Hero Images and the Allergen Images was gotten on freepik. 
+- [Google Fonts](https://fonts.google.com/) - The fonts were sourced using Google Fonts.
+- [Font Awesome](https://fontawesome.com/) - The icons was taken from Font Awesome.
+- [Mermaid](https://mermaid.live/) - The diagrams was created with Mermaid website.
+- [Google Images](https://www.google.com/imghp?hl=en) - Most of the products images & blog images was taken from google images. 
+
+## Useful links
+[Wade Williams](https://wadewilliams.com/software/generating-erd-for-django-applications/) - This was very useful to generate the ERD for the project.
+
+## Acknowledgments
+
+**Tutorials and Inspiration:**
+- The walkthrough project 'Boutique Ado' from Code Institute, It helped me a lot to build the website and also gave me some new ideas to put on my website.  
+- The Template for the GUI for this project was provided by [Code Institue Template](https://github.com/Code-Institute-Org/ci-full-template)
+
+**People:**
+- Malia Havlicek- Very sincere gratitude to my mentor for her guidance, support, and encouragement throughout the project.
+- The Code Institute Slack for tips and guidance.
+- My friends and family for their support and feedback.
