@@ -56,6 +56,17 @@ Functional requirements include:
 - Blog functionality where users can read and comment on posts related to African cuisine.
 - Admin capabilities to manage product listings, user accounts, blog posts, and comments.
 
+## Wireframes
+![IMG_0200](https://github.com/Nelkon01/afri_flavours/assets/54297166/6c1a8569-9067-424e-a95d-581552cf87ee)
+![IMG_0207](https://github.com/Nelkon01/afri_flavours/assets/54297166/c6d7eb8e-6121-42d9-ac26-361e98deaf0a)
+![IMG_0206](https://github.com/Nelkon01/afri_flavours/assets/54297166/93f8a526-36e7-434a-9fcb-24ec550e37f3)
+![IMG_0205](https://github.com/Nelkon01/afri_flavours/assets/54297166/71521ce0-6892-4cdf-8747-b0c792530e32)
+![IMG_0204](https://github.com/Nelkon01/afri_flavours/assets/54297166/b18f41dd-943f-406f-a16d-6ae9bc1a9cb5)
+![IMG_0203](https://github.com/Nelkon01/afri_flavours/assets/54297166/8ec8a009-421d-46ab-b99d-253711bd4127)
+![IMG_0202](https://github.com/Nelkon01/afri_flavours/assets/54297166/15b709a7-aa44-4ae0-b14f-59146173b40d)
+![IMG_0201](https://github.com/Nelkon01/afri_flavours/assets/54297166/1e6244a7-6090-46e6-b542-79b233f7f430)
+
+
 ## Data Structure
 
 ### Database Choice
@@ -397,7 +408,7 @@ wirefrea
 | 7 | Advanced search functionalities for blog posts and products.                                                                                   | HIGH         |
 
 # Compatibility and Responsive Testing
-Extensive testing was conducted on the website. It's responsiveness and features was tested on a variety of devices & browsers as noted in the table below:
+Extensive testing was conducted on the website. Its responsiveness and features were tested on a variety of devices & browsers as noted in the table below:
 
 | **TOOL / Device**           | **BROWSER** | **OS**                         | **SCREEN WIDTH** |
 |-----------------------------|-------------|--------------------------------|------------------|
@@ -424,7 +435,7 @@ Extensive testing was conducted on the website. It's responsiveness and features
 | Desktop/Laptop     | Edge                  | Windows          | Microsoft Edge is gaining popularity among users         |
 | Other              | Firefox/Samsung/Opera | Various          | Represents a compromise due to limited testing resources |
 
-The choices in the table are base on the browser market share data provided by [gs.statcounter.com](https://gs.statcounter.com/). Chrome and Safari are the dominant browsers, so they are included for testing on different devices and operating systems. Edge is also included as it has a noticeable market share. Since firefox, Samsung Internet and Opera have smaller market shares, they are grouped under the "Other" category to represent a compromise due to limited testing resources.
+The choices in the table are based on the browser market share data provided by [gs.statcounter.com](https://gs.statcounter.com/). Chrome and Safari are the dominant browsers, so they are included for testing on different devices and operating systems. Edge is also included as it has a noticeable market share. Since Firefox, Samsung Internet and Opera have smaller market shares, they are grouped under the "Other" category to represent a compromise due to limited testing resources.
 
 | **BROWSER**      | **PERCENTAGE** |
 |------------------|----------------|
@@ -438,20 +449,25 @@ The choices in the table are base on the browser market share data provided by [
 **Browser Market Share Worldwide - July 2023**
 
 ## Accessibility Testing
-To ensure our website is accessible, I have conducted extensive testing to ensure that it caters for users with disabilities.
+To ensure our website is accessible, I have conducted extensive testing to ensure it caters to users with disabilities.
 * Home Page - Lighthouse Audit (Desktop)
+<img width="779" alt="Screenshot 2024-05-15 at 06 22 12" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/0cc5d96b-9642-438b-88e3-d85567128de5">
 
 * Home Page - Lighthouse Audit (Mobile)
+<img width="775" alt="Screenshot 2024-05-15 at 06 26 02" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/e098f80f-beca-4288-8214-1bb5bdc990ba">
 
 * Products Page - Lighthouse Audit (Desktop)
+<img width="784" alt="Screenshot 2024-05-15 at 06 17 58" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/7fa0abcb-1a60-4ab9-8dde-cf32c9d5b15c">
 
 * Products Page - Lighthouse Audit (Mobile)
+<img width="780" alt="Screenshot 2024-05-15 at 06 28 36" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/8b6367cb-a1ed-4301-baec-3df8b2d3f9dd">
 
 * Blog Page - Lighthouse Audit (Desktop)
+<img width="774" alt="Screenshot 2024-05-15 at 06 20 29" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/2a1ed1f1-3598-4efd-bcfe-e90330ff1e22">
 
 * Blog Page - Lighthouse Audit (Mobile)
+<img width="781" alt="Screenshot 2024-05-15 at 06 29 28" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/b745aad6-58f8-4f3e-8103-219ec45525a8">
 
-* Blog Post Details - Lighthouse Audit (Desktop)
 
 
 **NOTES**
@@ -463,18 +479,20 @@ Extensive Manual Testing was conducted to ensure the functionality and usability
 <details>
 <summary>Validation Testing</summary>
 
-The following site were used to aid in validation testing:
+The following sites were used to aid in validation testing:
 
 - **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
 
 **BLOG.CSS:**
 
+<img width="1624" alt="Screenshot 2024-05-15 at 07 46 55" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/12ca7334-842e-4a9d-a83a-ec7a3c559854">
 
 
 <hr>
 
 **CHECKOUT.CSS:**
 
+<img width="1007" alt="Screenshot 2024-05-15 at 07 49 42" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/a07b444a-b38b-4763-966b-b3cdc2bfa648">
 
 
 
@@ -482,12 +500,14 @@ The following site were used to aid in validation testing:
 
 **PROFILE.CSS:**
 
+<img width="1011" alt="Screenshot 2024-05-15 at 07 50 10" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/ae9cad41-0a11-463a-9106-049d24218460">
 
 
 <hr>
 
 **BASE.CSS:**
 
+<img width="1007" alt="Screenshot 2024-05-15 at 07 50 44" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/77aafc4a-c749-4f30-92dc-fb2bb50782f0">
 
 
 <hr>
@@ -497,6 +517,7 @@ The following site were used to aid in validation testing:
 - **[HTML Validator](https://validator.w3.org/)**
 
 **HOME PAGE:**
+<img width="1008" alt="Screenshot 2024-05-15 at 07 51 31" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/3657e49b-f73b-4a73-b7ac-fcf63da46ba1">
 
 
 
@@ -504,99 +525,34 @@ The following site were used to aid in validation testing:
 
 **PRODUCTS PAGE:**
 
+<img width="1009" alt="Screenshot 2024-05-15 at 07 52 04" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/a3368e11-dfe2-4fbe-82ae-f7e097b4b33f">
 
 
 <hr>
 
 **PRODUCTS DETAILS PAGE:**
 
+<img width="899" alt="Screenshot 2024-05-15 at 07 55 29" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/7ae913d9-0bcc-4a69-ad93-8afe9e00a609">
 
 
 <hr>
 
 **BLOG PAGE:**
+<img width="1008" alt="Screenshot 2024-05-15 at 07 56 18" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/2c87e4bf-1ae2-4052-be18-47d47c96df43">
+
+** Notes
+- All HTML pages was tested as well to ensure there was no significant error present in the code base. 
 
 
 
 <hr>
 
-**BLOG PAGE DETAILS:**
-
-
-
-
-<hr>
-
-**REVIEWS PAGE:**
-
-
-
-<hr>
-
-
-**LOGOUT PAGE**
-
-
-
-<hr>
-
-**LOGIN PAGE**
-
-
-
-<hr>
-
-**REGISTER PAGE**
-
-
-
-<hr>
-
-**RECOVER PASSWORD PAGE**
-
-
-
-<hr>
-
-**MY PROFILE PAGE**
-
-
-
-**SHOPPING BAG PAGE**
-
-
-
-<hr>
-
-**CHECKOUT PAGE**
-
-<hr>
-
-**CHECKOUT SUCCESS PAGE**
-
-
-
-<hr>
-
-
-
-**404 PAGE**
-
-
-
-<hr>
-
-**500 PAGE**
-
-
-
-<hr>
-
-The following site were used to aid in validation testing:
+The website below was utilised in validation testing:
 
 **[JS validation](https://jshint.com)**
 
 **STRIPE_ELEMENT.JS**
+<img width="1234" alt="Screenshot 2024-05-15 at 10 12 01" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/aa9a84b8-0e35-40df-92de-a203794c005a">
 
 
 
@@ -604,17 +560,17 @@ The following site were used to aid in validation testing:
 
 **QUANTITY_INPUT_SCRIPT**
 
+<img width="1265" alt="Screenshot 2024-05-15 at 10 16 32" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/b2c22f86-c791-4229-b656-f7abec2c1f3a">
 
 
 <hr>
 
 **COUNTRYFIELD.JS** 
 
+<img width="1250" alt="Screenshot 2024-05-15 at 10 25 02" src="https://github.com/Nelkon01/afri_flavours/assets/54297166/25ba2a27-eaf5-404f-a0dd-f4329695eae2">
 
 
 <hr>
-
-The following site were used to aid in validation testing:
 
 
 
@@ -622,21 +578,26 @@ The following site were used to aid in validation testing:
 <hr>
 
 ## Automated Testing
-- Manual Testing was conducted due to time constrains.
-- The examination of each app's views will be carried out using Django unittest module in future developments.
+- Manual Testing was conducted due to time constraints.
+- The examination of each app's views will be carried out using Django unit test module in future developments.
 
 ## Bugs and Defects
-**DEFECTS** were documented in github using a custom issue template. 
 
-
-### 
+### Notable Bugs and Fixes Implemented
 
 **Purchase confirmation email not received**
-- During the final testing phase of store's functionality, I encountered a significant bug related to the purchase confirmation email system. Upon completing a purchase, I expected to receive a confirmation email detailing the order. However, the email failed to be delivered to the test users, leading to concerns about the reliability of the purchase process.
+- During the final testing phase of the store's functionality, I encountered a significant bug related to the purchase confirmation email system. Upon completing a purchase, I expected to receive a confirmation email detailing the order. However, the email failed to be delivered to the test users, leading to concerns about the reliability of the purchase process.
   - This has been fixed by updating the email settings in the settings.py file to include the correct email host, port, and credentials. The email backend was also updated to use the SMTP protocol for sending emails.
 
-**Security Vulnerability - Unauthorized Access to User reviews / Order History**
-- While conducting a review in the platform's security, I identified a bug that poses a significant risk to user accounts and their associated reviews. This bug allows unauthorized users to access and edit reviews, also order history that belonging to other user's accounts. Furthermore, the bug enables users to copy links that lead directly to other user's accounts, granting unauthorized access.
+ **Purchase Confirmation Page and Emaiil displaying 0 for order total and delivery 
+ - As shown below
+![image](https://github.com/Nelkon01/afri_flavours/assets/54297166/969e08d1-e41c-4e93-99fc-57f1b7e35653)
+![Image from iOS](https://github.com/Nelkon01/afri_flavours/assets/54297166/ad4062e0-654d-4f20-8ca4-1181705e11be)
+
+ ** Account Confirmation Email leads to an Error
+
+**Security Vulnerability - Unauthorized Access to User Comments / Order History**
+- While conducting a review of the platform's security, I identified a bug that poses a significant risk to user accounts and their associated reviews. This bug allows unauthorized users to access and edit reviews, also order history that belongs to other users' accounts. Furthermore, the bug enables users to copy links that lead directly to other user's accounts, granting unauthorized access.
     - This has been fixed by implementing a custom decorator that checks the user's ID against the user ID in the URL. If the IDs do not match, the user is redirected to the home page. This ensures that only the user who created the review can access and edit it.
 
 ### Outstanding Defects
