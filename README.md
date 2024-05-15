@@ -10,39 +10,76 @@ Afri-Flavours Hub is a food e-commerce website developed using Django. It featur
 <details>
 <summary>Click to Expand</summary>
 
-- [UX](#ux)dam
-    * [Strategy](#strategy)
-    * [Scope](#scope)
+- [Overview](#overview)
+- [UX](#ux)
+  * [Strategy](#strategy)
+  * [Scope](#scope)
+  * [Wireframes](#wireframes)
 - [Data Structure](#data-structure)
-    * [Database Choice](#database-choice)
-    * [Database Models](#Database-models)
-    * [ERD Diagram](#erd-diagram)
+  * [Database Choice](#database-choice)
+  * [Database Models](#database-models)
+    * [Blog Models](#blog-models)
+    * [Order Models](#order-models)
+    * [Product Models](#product-models)
+    * [Profile Models](#profile-models)
+  * [ERD Diagram](#erd-diagram)
 - [Design Choices](#design-choices)
-    * [Colour Scheme](#colour-scheme)
-    * [Typography](#typography)
-    * [Imagery](#imagery)
+  * [Colour Scheme](#colour-scheme)
+  * [Typography](#typography)
+  * [Imagery](#imagery)
+  * [Favicon](#favicon)
 - [User Stories](#user-stories)
-
   * [First Time Visitor Goals](#first-time-visitor-goals)
   * [Returning Visitor Goals](#returning-visitor-goals)
   * [Frequent User Goals](#frequent-user-goals)
-  * 
-      * [Implemented Elements](#implemented-elements)
-        * [Forms](#forms)
-        * [Database Operations](#database-operations)
-        * [Additional Features](#additional-features)
-        * [Future Feature Enhancements](#future-feature-enhancements)
+- [Implemented Elements](#implemented-elements)
+  * [Features](#features)
+    * [Navigation](#navigation)
+    * [User Access Levels](#user-access-levels)
+    * [Authentication](#authentication)
+    * [Products Page](#products-page)
+    * [Bag & Checkout](#bag--checkout)
+    * [Profile](#profile)
+    * [Blog](#blog)
+    * [Comments](#comments)
+    * [Messages & Notifications](#messages--notifications)
+    * [Admin Permissions](#admin-permissions)
+    * [Error Handling](#error-handling)
+  * [Forms](#forms)
+  * [Database Operations](#database-operations)
+  * [Additional Features](#additional-features)
+  * [Future Feature Enhancements](#future-feature-enhancements)
+- [Compatibility and Responsive Testing](#compatibility-and-responsive-testing)
+  * [Most Popular Browser & Operating System](#most-popular-browser--operating-system)
+- [Accessibility Testing](#accessibility-testing)
+- [Manual Testing](#manual-testing)
+  * [Validation Testing](#validation-testing)
+- [Automated Testing](#automated-testing)
+- [Bugs and Defects](#bugs-and-defects)
+  * [Notable Bugs and Fixes Implemented](#notable-bugs-and-fixes-implemented)
+  * [Outstanding Defects](#outstanding-defects)
 - [Technologies Used](#technologies-used)
-    * [Front-End Technologies](#front-end-technologies)
-    * [Back-End Technologies](#back-end-technologies)
-    * [Deployment and Hosting](#deployment-and-hosting)
-    * [Version Control and Collaboration](#version-control-and-collaboration)
-- [Defensive Programming](#defensive-programming)
-- [Testing](#testing)
+  * [Languages](#languages)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 - [Deployment](#deployment)
-- [Acknowledgements](#acknowledgements)
+  * [Prerequisites](#prerequisites)
+  * [Stripe Payments](#stripe-payments)
+  * [Gmail Set up (Sending Real Emails with Django)](#gmail-set-up-sending-real-emails-with-django)
+  * [Fork and Clone the Repository](#fork-and-clone-the-repository)
+  * [Making a Local Clone](#making-a-local-clone)
+  * [Development Deployment](#development-deployment)
+    * [Running the Project in PyCharm](#running-the-project-in-pycharm)
+  * [Production Deployment](#production-deployment)
+- [Credits](#credits)
+  * [Online Sources](#online-sources)
+  * [Modules and Libraries](#modules-and-libraries)
+  * [Content](#content)
+  * [Media](#media)
+- [Useful Links](#useful-links)
+- [Acknowledgments](#acknowledgments)
 
 </details>
+
 
 ## UX
 
@@ -57,13 +94,22 @@ Functional requirements include:
 - Admin capabilities to manage product listings, user accounts, blog posts, and comments.
 
 ## Wireframes
+* Mobile Products
 ![IMG_0200](https://github.com/Nelkon01/afri_flavours/assets/54297166/6c1a8569-9067-424e-a95d-581552cf87ee)
+* Desktop Blog Detail
 ![IMG_0207](https://github.com/Nelkon01/afri_flavours/assets/54297166/c6d7eb8e-6121-42d9-ac26-361e98deaf0a)
+
+* Desktop Product Detail 
 ![IMG_0206](https://github.com/Nelkon01/afri_flavours/assets/54297166/93f8a526-36e7-434a-9fcb-24ec550e37f3)
+* Desktop Products
 ![IMG_0205](https://github.com/Nelkon01/afri_flavours/assets/54297166/71521ce0-6892-4cdf-8747-b0c792530e32)
+* Mobile Recipes & Blog
 ![IMG_0204](https://github.com/Nelkon01/afri_flavours/assets/54297166/b18f41dd-943f-406f-a16d-6ae9bc1a9cb5)
+* Mobile Product Detail
 ![IMG_0203](https://github.com/Nelkon01/afri_flavours/assets/54297166/8ec8a009-421d-46ab-b99d-253711bd4127)
+* Mobile Home Page
 ![IMG_0202](https://github.com/Nelkon01/afri_flavours/assets/54297166/15b709a7-aa44-4ae0-b14f-59146173b40d)
+* Desktop Home Page
 ![IMG_0201](https://github.com/Nelkon01/afri_flavours/assets/54297166/1e6244a7-6090-46e6-b542-79b233f7f430)
 
 
@@ -150,50 +196,7 @@ High-quality imagery is integral to the website, showcasing products and cultura
 
 ### Favicon
 The website's favicon mirrors the logo, maintaining brand consistency and enhancing the site's identity. This choice ensures that the website is easily recognizable and aligned with its overall branding strategy.
-## Wireframes
-wirefrea
-  
-**Home Page:**
 
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/1e2c8427-c12b-413f-b735-052389f95d09)
-
-**Add Review:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/9a68b3c1-21a1-42bf-8b45-52040851b316)
-
-**Edit Review:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/6d7aac70-4005-489f-a92f-321424971c04)
-
-**Product List:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/951fcdad-f692-40db-b3c2-42d6c4e4c70d)
-
-**Product Details:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/211f5d61-5007-4bad-9850-189938a30c22)
-
-**Expert Advice:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/9b5dbb00-efc9-4268-a40a-794b33dee778)
-
-**Blog:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/4c05ad62-d2f1-4eaf-9387-976563ccb580)
-
-**Post Detail:**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/d6abad5a-922a-498d-8a4e-85d8a1c7a4dc)
-
-**Post Detail(with like - mobile view):**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/ac0a0019-4777-4f6b-98e0-492e5ba4eb00)
-
-**Product List (Tablet View):**
-
-![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/f2c7d22c-1d2e-40f1-a792-391052563f81)
-
-## User Stories
 
 ### First Time Visitor Goals
 1. As a First Time Visitor, I want to understand the purpose of the website so that I can determine if it meets my needs.
@@ -589,12 +592,13 @@ The website below was utilised in validation testing:
 - During the final testing phase of the store's functionality, I encountered a significant bug related to the purchase confirmation email system. Upon completing a purchase, I expected to receive a confirmation email detailing the order. However, the email failed to be delivered to the test users, leading to concerns about the reliability of the purchase process.
   - This has been fixed by updating the email settings in the settings.py file to include the correct email host, port, and credentials. The email backend was also updated to use the SMTP protocol for sending emails.
 
- **Purchase Confirmation Page and Emaiil displaying 0 for order total and delivery 
+ **Purchase Confirmation Page and Emaiil displaying 0 for order total and delivery**
  - As shown below
 ![image](https://github.com/Nelkon01/afri_flavours/assets/54297166/969e08d1-e41c-4e93-99fc-57f1b7e35653)
 ![Image from iOS](https://github.com/Nelkon01/afri_flavours/assets/54297166/ad4062e0-654d-4f20-8ca4-1181705e11be)
 
  ** Account Confirmation Email leads to an Error
+- I had to create a custom view to handle the user email confirmation and over ride the allauth one. 
 
 **Security Vulnerability - Unauthorized Access to User Comments / Order History**
 - While conducting a review of the platform's security, I identified a bug that poses a significant risk to user accounts and their associated reviews. This bug allows unauthorized users to access and edit reviews, also order history that belongs to other users' accounts. Furthermore, the bug enables users to copy links that lead directly to other user's accounts, granting unauthorized access.
