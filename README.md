@@ -4,13 +4,13 @@
 ![logo](https://github.com/Nelkon01/afri_flavours/assets/54297166/7f0b5b2b-2777-425a-8139-91896aff7718)
 Afri-Flavours Hub is a food e-commerce website developed using Django. It features user authentication, product management, a shopping cart, order processing, payment integration, a blog for sharing recipes and stories, and an admin dashboard for managing the website.
 
-## Click [here](https://afri-flavours-0342f46728dc.herokuapp.com//) to live website.
+## Click [here](https://afri-flavours-0342f46728dc.herokuapp.com/) to live website.
 ## Table of Contents
 
 <details>
 <summary>Click to Expand</summary>
 
-- [UX](#ux)
+- [UX](#ux)dam
     * [Strategy](#strategy)
     * [Scope](#scope)
 - [Data Structure](#data-structure)
@@ -139,7 +139,48 @@ High-quality imagery is integral to the website, showcasing products and cultura
 
 ### Favicon
 The website's favicon mirrors the logo, maintaining brand consistency and enhancing the site's identity. This choice ensures that the website is easily recognizable and aligned with its overall branding strategy.
+## Wireframes
+wirefrea
+  
+**Home Page:**
 
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/1e2c8427-c12b-413f-b735-052389f95d09)
+
+**Add Review:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/9a68b3c1-21a1-42bf-8b45-52040851b316)
+
+**Edit Review:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/6d7aac70-4005-489f-a92f-321424971c04)
+
+**Product List:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/951fcdad-f692-40db-b3c2-42d6c4e4c70d)
+
+**Product Details:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/211f5d61-5007-4bad-9850-189938a30c22)
+
+**Expert Advice:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/9b5dbb00-efc9-4268-a40a-794b33dee778)
+
+**Blog:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/4c05ad62-d2f1-4eaf-9387-976563ccb580)
+
+**Post Detail:**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/d6abad5a-922a-498d-8a4e-85d8a1c7a4dc)
+
+**Post Detail(with like - mobile view):**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/ac0a0019-4777-4f6b-98e0-492e5ba4eb00)
+
+**Product List (Tablet View):**
+
+![image](https://github.com/Giov3ss/PowerProtein/assets/112728772/f2c7d22c-1d2e-40f1-a792-391052563f81)
 
 ## User Stories
 
@@ -345,8 +386,6 @@ The website's favicon mirrors the logo, maintaining brand consistency and enhanc
 * Responsive design ensures functionality across all devices.
 ### Future Feature Enhancements
 
-* 
-
 |   | **FEATURES**                                                                                                                                   | **PRIORITY** |
 |---|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
 | 1 | Implementing a feature that will allow users to favourite products for later with a wishlist,  ensuring they never miss out on products.       | LOW          |
@@ -356,6 +395,252 @@ The website's favicon mirrors the logo, maintaining brand consistency and enhanc
 | 5 | Support to cater to a wider user base, allowing users from different regions and language preferences to access and use the Afri-Flavours shop | HIGH         |
 | 6 | Implementation of a recipe upload feature for users.                                                                                           | HIGH         |
 | 7 | Advanced search functionalities for blog posts and products.                                                                                   | HIGH         |
+
+# Compatibility and Responsive Testing
+Extensive testing was conducted on the website. It's responsiveness and features was tested on a variety of devices & browsers as noted in the table below:
+
+| **TOOL / Device**           | **BROWSER** | **OS**                         | **SCREEN WIDTH** |
+|-----------------------------|-------------|--------------------------------|------------------|
+| iPhone 14 Plus v16.0        | Safari      | iOS 17.1                       | 1284x2778 px     |
+| iPhone 6S v12.1             | Safari      | iOS, v12.1                     | 375 x 559 px     |
+| Samsung Galaxy A52 v11.0    | Chrome      | Android, v11.0                 | 412 x 777 px     |
+| Moto G9 Play v10.0          | Firefox     | Android, v10.0                 | 412 x 804 px     |
+| OnePlus 6T v9.0             | Edge        | Android, v9.0                  | 412 x 757 px     |
+| Samsung Galaxy A10 v9.0     | Samsung     | Android, v9.0                  | 412 x 734 px     |
+| Samsung Galaxy Tab S7 v11.0 | Chrome      | Android, v11.0                 | 753 x 1037 px    |
+| iPad Air                    | Safari      | Ipad Os 17.1                   | 768 x 954 px     |
+| windows 11                  | Firefox     | Browser Version 115.0          | 1920 x 955 px    |
+| Macbook Pro                 | Safari      | Safari 17.1 on macOS Sononma   | 1920 x 955 px    |
+| windows 11                  | Yandex      | Yandex & Browser Version=14.12 | 1920 x 955 px    |
+
+### Most Popular browser & Operating System
+
+| Device             | Browser               | Operating System | Description                                              |
+|--------------------|-----------------------|------------------|----------------------------------------------------------|
+| iPhone             | Safari                | iOS              | Popular combination with significant market share        |
+| Android Smartphone | Chrome                | Android          | Widely used browser on the Android platform              |
+| Desktop/Laptop     | Chrome                | Windows          | Popular browser on the Windows operating system          |
+| Desktop/Laptop     | Chrome                | MacOS            | Popular browser on the macOS operating system            |
+| Desktop/Laptop     | Edge                  | Windows          | Microsoft Edge is gaining popularity among users         |
+| Other              | Firefox/Samsung/Opera | Various          | Represents a compromise due to limited testing resources |
+
+The choices in the table are base on the browser market share data provided by [gs.statcounter.com](https://gs.statcounter.com/). Chrome and Safari are the dominant browsers, so they are included for testing on different devices and operating systems. Edge is also included as it has a noticeable market share. Since firefox, Samsung Internet and Opera have smaller market shares, they are grouped under the "Other" category to represent a compromise due to limited testing resources.
+
+| **BROWSER**      | **PERCENTAGE** |
+|------------------|----------------|
+| Chrome           | 63.55%         |
+| Safari           | 19.95%         |
+| Edge             | 5.13%          |
+| Opera            | 2.99%          |
+| Firefox          | 2.79%          |
+| Samsung Internet | 2.38%          |
+
+**Browser Market Share Worldwide - July 2023**
+
+## Accessibility Testing
+To ensure our website is accessible, I have conducted extensive testing to ensure that it caters for users with disabilities.
+* Home Page - Lighthouse Audit (Desktop)
+
+* Home Page - Lighthouse Audit (Mobile)
+
+* Products Page - Lighthouse Audit (Desktop)
+
+* Products Page - Lighthouse Audit (Mobile)
+
+* Blog Page - Lighthouse Audit (Desktop)
+
+* Blog Page - Lighthouse Audit (Mobile)
+
+* Blog Post Details - Lighthouse Audit (Desktop)
+
+
+**NOTES**
+- The website has been tested for accessibility using Lighthouse Audit on Google Chrome.
+- The low scores in performance are due to the type of images used on the website. This is a trade-off between image quality and performance. However better image optimization can be done to improve performance, and this will be done in the future.
+
+## Manual Testing
+Extensive Manual Testing was conducted to ensure the functionality and usability of the website. 
+<details>
+<summary>Validation Testing</summary>
+
+The following site were used to aid in validation testing:
+
+- **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
+
+**BLOG.CSS:**
+
+
+
+<hr>
+
+**CHECKOUT.CSS:**
+
+
+
+
+<hr>
+
+**PROFILE.CSS:**
+
+
+
+<hr>
+
+**BASE.CSS:**
+
+
+
+<hr>
+
+The following site were used to aid in validation testing:
+
+- **[HTML Validator](https://validator.w3.org/)**
+
+**HOME PAGE:**
+
+
+
+<hr>
+
+**PRODUCTS PAGE:**
+
+
+
+<hr>
+
+**PRODUCTS DETAILS PAGE:**
+
+
+
+<hr>
+
+**BLOG PAGE:**
+
+
+
+<hr>
+
+**BLOG PAGE DETAILS:**
+
+
+
+
+<hr>
+
+**REVIEWS PAGE:**
+
+
+
+<hr>
+
+
+**LOGOUT PAGE**
+
+
+
+<hr>
+
+**LOGIN PAGE**
+
+
+
+<hr>
+
+**REGISTER PAGE**
+
+
+
+<hr>
+
+**RECOVER PASSWORD PAGE**
+
+
+
+<hr>
+
+**MY PROFILE PAGE**
+
+
+
+**SHOPPING BAG PAGE**
+
+
+
+<hr>
+
+**CHECKOUT PAGE**
+
+<hr>
+
+**CHECKOUT SUCCESS PAGE**
+
+
+
+<hr>
+
+
+
+**404 PAGE**
+
+
+
+<hr>
+
+**500 PAGE**
+
+
+
+<hr>
+
+The following site were used to aid in validation testing:
+
+**[JS validation](https://jshint.com)**
+
+**STRIPE_ELEMENT.JS**
+
+
+
+<hr>
+
+**QUANTITY_INPUT_SCRIPT**
+
+
+
+<hr>
+
+**COUNTRYFIELD.JS** 
+
+
+
+<hr>
+
+The following site were used to aid in validation testing:
+
+
+
+</details>
+<hr>
+
+## Automated Testing
+- Manual Testing was conducted due to time constrains.
+- The examination of each app's views will be carried out using Django unittest module in future developments.
+
+## Bugs and Defects
+**DEFECTS** were documented in github using a custom issue template. 
+
+
+### 
+
+**Purchase confirmation email not received**
+- During the final testing phase of store's functionality, I encountered a significant bug related to the purchase confirmation email system. Upon completing a purchase, I expected to receive a confirmation email detailing the order. However, the email failed to be delivered to the test users, leading to concerns about the reliability of the purchase process.
+  - This has been fixed by updating the email settings in the settings.py file to include the correct email host, port, and credentials. The email backend was also updated to use the SMTP protocol for sending emails.
+
+**Security Vulnerability - Unauthorized Access to User reviews / Order History**
+- While conducting a review in the platform's security, I identified a bug that poses a significant risk to user accounts and their associated reviews. This bug allows unauthorized users to access and edit reviews, also order history that belonging to other user's accounts. Furthermore, the bug enables users to copy links that lead directly to other user's accounts, granting unauthorized access.
+    - This has been fixed by implementing a custom decorator that checks the user's ID against the user ID in the URL. If the IDs do not match, the user is redirected to the home page. This ensures that only the user who created the review can access and edit it.
+
+### Outstanding Defects
+ - The active class on the navbar is not working as expected. The active class is not being applied to the correct page when the user navigates to a different page. This issue is likely due to the incorrect URL being used to determine the active class. The issue will be resolved by updating the URL in the navbar template to match the URL of the current page.
 
 ## Technologies Used
 Several technologies have been used to create this project namely:
