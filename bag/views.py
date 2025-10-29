@@ -3,11 +3,11 @@ from django.shortcuts import (
 )
 
 from django.contrib import messages
-
 from products.models import Product
 
+import logging
 
-# Create your views here.
+logger = logging.getLogger(__name__)
 
 
 def view_bag(request):
@@ -17,8 +17,18 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """Add a quantity of the specified product to the shopping bag"""
+    """
+    Add a quantity of the specified product to the shopping bag.
 
+    If the product already exists in the bag, increases the quantity.
+    Otherwise, adds the product with the specified quantity.
+
+    Args:
+        item_id: The ID of the product to add to the bag.
+
+    Returns:
+        Redirects to the URL specified in the POST data.
+    """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -36,7 +46,18 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """
+    Adjust the quantity of a product in the shopping bag.
+
+    If quantity is greater than 0, updates the quantity.
+    If quantity is 0, removes the product from the bag.
+
+    Args:
+        item_id: The ID of the product to adjust.
+
+    Returns:
+        Redirects to the bag view page.
+    """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
@@ -53,7 +74,15 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """
+    Remove an item from the shopping bag.
+
+    Args:
+        item_id: The ID of the product to remove from the bag.
+
+    Returns:
+        HttpResponse with status 200 on success, 500 on error.
+    """
     try:
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
@@ -65,5 +94,6 @@ def remove_from_bag(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
+        logger.error(f'Error removing item {item_id} from bag: {e}', exc_info=True)
+        messages.error(request, 'Error removing item from your bag. Please try again.')
         return HttpResponse(status=500)

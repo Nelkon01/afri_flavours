@@ -891,6 +891,10 @@ img.card-img-top.img-fluid {
 	border-radius: 15px;
 }
 
+.allergen-icon {
+    height: 20px;
+}
+
 .btn-outline-success {
     color: #28a745;
     border-color: #28a745;

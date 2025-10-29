@@ -78,7 +78,16 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """Add a product to the store"""
+    """
+    Add a new product to the store.
+
+    Requires superuser authentication. Handles both GET (display form)
+    and POST (process form submission) requests.
+
+    Returns:
+        Redirects to product detail page on success,
+        or renders add_product template with form on GET/failure.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -99,7 +108,19 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """Edit a product in the store"""
+    """
+    Edit an existing product in the store.
+
+    Requires superuser authentication. Handles both GET (display form with
+    existing data) and POST (process form updates) requests.
+
+    Args:
+        product_id: The ID of the product to edit.
+
+    Returns:
+        Redirects to product detail page on success,
+        or renders edit_product template with form.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -122,6 +143,17 @@ def edit_product(request, product_id):
 
 # Generic delete view for handling confirmation
 class ProductDeleteView(DeleteView):
+    """
+    Handle product deletion with confirmation.
+
+    Requires superuser authentication. Displays confirmation page
+    before deleting the product from the database.
+
+    Attributes:
+        model: Product model class
+        template_name: Template for deletion confirmation
+        success_url: Redirect to products list after successful deletion
+    """
     model = Product
     template_name = 'products/confirm_delete.html'
     success_url = reverse_lazy('products')

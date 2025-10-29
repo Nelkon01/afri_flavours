@@ -55,7 +55,7 @@
                     {% for allergen in product.allergens.all %}
                     <div class="allergen">
                         {% if allergen.icon %}
-                        <img src="{{ allergen.icon.url }}" alt="{{ allergen.name }}" style="height: 20px;">
+                        <img class="allergen-icon" src="{{ allergen.icon.url }}" alt="{{ allergen.name }}">
                         {% endif %}
                         <small class="text-muted">{{ allergen.name }}</small>
                     </div>
